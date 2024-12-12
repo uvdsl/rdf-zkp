@@ -1,0 +1,465 @@
+@prefix : <#> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+
+<> a owl:Ontology ;
+    dc:title "A (Zero-Knowledge) Proof Ontology" ;
+    dc:date "2023-10-26" ;
+    dc:creator []; # deleted for anon review
+    dc:description "This is an RDF vocabulary to model (zero-knowledge) proofs." .
+    
+    
+####################
+#      Classes     #
+####################
+
+:Statement a rdfs:Class ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "statement (effective relation)" ;
+    rdfs:comment """
+The class of statements (effective relation): 
+An effective relation is a binary relation R subseteqal X x Y, where X, Y and R 
+are efficiently recognizable finite sets. Elements of Y are called statements. 
+If (x, y) in R, then x is called a witness for y.
+For example we can say X = Zq , Y = G which is a finite group, and R =
+{(a, u) in Z_q x G : g^a = u}. That is, u is a statement defined as g^a, and a is the
+witness.
+                 """ .
+
+:Witness a rdfs:Class ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "witness (effective relation)" ;
+    rdfs:comment """
+The class of witnesses (effective relation): 
+An effective relation is a binary relation R subseteqal X x Y, where X, Y and R 
+are efficiently recognizable finite sets. Elements of Y are called statements. 
+If (x, y) in R, then x is called a witness for y.
+                 """ .
+
+:AccumulativeStatement a rdfs:Class ;
+    rdfs:subClassOf :Statement;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "accumulative statement" ;
+    rdfs:comment """
+The class of statements that are the accumulation of statements : 
+To describe the accumulation of two statements e.g. v in Y : g^a * h^b = v, 
+we say v is an accumulative statement.
+                 """ .
+
+:VerificationEquation a rdfs:Class ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "verification equation (proof)" ;
+    rdfs:comment """
+For a proof of a statement, we say there exist verification equations that
+must be true for the proof to hold. For example, verification equation g^a = u
+should indeed holds given (g, a, u).
+                 """ .
+
+:CompositeProof a rdfs:Class ;
+    rdfs:subClassOf :Proof;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "proof" ;
+    rdfs:comment """
+The class of composite proofs: 
+a statement of one or multiple facts that can be verified to be true or false.
+This concept is not necessarily zero-knowledge.
+                 """ .
+
+:Proof a rdfs:Class ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "proof" ;
+    rdfs:comment """
+The class of proofs: 
+a statement of a fact that can be verified to be true or false.
+This concept is not necessarily zero-knowledge.
+                 """ .
+
+:ZeroKnowledgeProof a rdfs:Class ;
+    rdfs:subClassOf :Proof;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "zero-knoweldge proof" ;
+    rdfs:comment """
+The class of zero-knowledge proofs: 
+a statement of a fact that can be verified to be true or false (i.e. a proof), 
+either in an interaction or non-interactively, 
+where the verifier of the proof does not learn any additional information other than the fact being true or false (zero-knowledge).
+In a non-interactive zero-knowledge proof protocol, a zero-knowledge proof is the statement that is transmitted from a prover (the createor of the proof) to the verifier (of the proof).
+In an interactive zero-knowledge proof protocol, a zero-knowledge proof is an abstract statement that the prover is making in the interaction with the verifier in order to convince the verifier of the truthfulness of the fact.
+This abstract statement is the composite of the interactions of the prover with the verifier, e.g. sharing exponents, returning a hash challenge, and so on.
+                 """ .
+
+:ZeroKnowledgeProofProtocol a rdfs:Class ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "zero-knoweldge proof protocol" ;
+    rdfs:comment """
+The class of zero-knowledge proof protocols: 
+a protocol between a prover and a verifier, where the prover convinces a verifier that a fact is indeed true
+without the verifier learning any additional information other than the fact being true.
+                 """ .
+
+:InteractiveZeroKnowledgeProofProtocol a rdfs:Class ;
+    rdfs:subClassOf :ZeroKnowledgeProofProtocol ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "interactive zero-knoweldge proof protocol" ;
+    rdfs:comment """
+The class of interactive zero-knowledge proof protocols: 
+a protocol between a prover and a verifier, where the prover convinces a verifier in an interaction that a fact is indeed true
+without the verifier learning any additional information other than the fact being true.
+For example, a prover initiates interaction with a verifier, the verifier sends a challenge to the prover, the prover answers the challenge to convince the verifier.
+                 """ .
+
+:NonInteractiveZeroKnowledgeProofProtocol a rdfs:Class ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "non-interactive zero-knoweldge proof protocol" ;
+    rdfs:comment """
+The class of non-interactive zero-knowledge proof protocols: 
+a protocol between a prover and a verifier, where the prover convinces a verifier in a non-interactive manner that a fact is indeed true
+without the verifier learning any additional information other than the fact being true.
+For example, a prover creates a zero-knowledge proof, sends that proof to a verifier for the verifier to verify.
+                 """ .
+
+:Challenge a rdfs:Class ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "proof challenge" ;
+    rdfs:comment """
+The class of proof challenges: 
+either provided to a prover by a verifier (in the interactive setting) or provided by a random oracle (hash function)
+                 """ .
+
+:ChallengeContribution a rdfs:Class ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "proof challenge contribution" ;
+    rdfs:comment """
+The class of proof challenge contribution: 
+In the non-interactive setting, a proof's challenge contribution consists of a list of values that are used in the creation of the proof and are known by both prover and verifier.
+                 """ .
+
+:RandomOracle a rdfs:Class ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "random oracle" ;
+    rdfs:comment """
+The class of random oracles: 
+In the non-interactive setting, a random oracle provides the proof challenge to both the prover and verifier.
+For example, this can be a hash function with proof instance-specific input parameters that are known to both the verifier and prover.
+                 """ .
+
+:ProofOfKnowledgeOfDiscreteLog a rdfs:Class ;
+    rdfs:subClassOf :Proof;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "proof of knowledge of discrete log" ;
+    rdfs:comment """
+The class of  proofs of knowledge of discrete log:
+a statement expressing the fact that the creator of the proof has knowledge of a discrete log.
+This concept is not necessarily zero-knowledge: 
+A creator of the proof may choose to disclose the discrete log value, thereby proving knowledge of it.
+                 """ .
+
+:ZeroKnowledgeProofOfKnowledgeOfDiscreteLog a rdfs:Class ;
+    rdfs:subClassOf :ZeroKnowledgeProof, :ProofOfKnowledgeOfDiscreteLog;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "zero-knoweldge proof of knowledge of discrete log" ;
+    rdfs:comment """
+The class of zero-knowledge proofs of knowledge of discrete log:
+a statement expressing the fact that the creator of the proof has knowledge of a discrete log,
+where the verifier of the proof does not learn any additional information other than the fact being true or false (zero-knowledge).
+                 """ .
+
+:DigitalSignature a rdfs:Class ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "digital signature" ;
+    rdfs:comment """
+The class of digital signatures: 
+a mathematical statement for verifying the authenticity of a digital message, document and so on.
+                 """ .
+
+:DigitalSignatureScheme a rdfs:Class ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "digital signature scheme" ;
+    rdfs:comment """
+The class of digital signature schemes: 
+a mathematical scheme for creation of statements to verify the authenticity of a digital message, document and so on.
+                 """ .
+
+:MultiMessageSignature a rdfs:Class ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "multi-message signature" ;
+    rdfs:comment """
+The class of multi-message signatures: 
+a mathematical statement for verifying the authenticity of multiple digital messages, documents and so on.
+                 """ .
+
+:MultiMessageSignatureScheme a rdfs:Class ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "multi message signature scheme" ;
+    rdfs:comment """
+The class of multi message signature schemes: 
+a mathematical scheme for creation of statements to verify the authenticity of multiple digital messages, documents and so on.
+                 """ .
+
+:ProofOfKnowledgeOfSignature a rdfs:Class ;
+    rdfs:subClassOf :Proof;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "proof of knowledge of signature" ;
+    rdfs:comment """
+The class of proofs of knowledge of signature:
+a statement expressing the fact that the creator of the proof has knowledge of a signature over a (possibly empty) set of values.
+This concept is not necessarily zero-knowledge: 
+A creator of the proof may choose to disclose the signature, thereby proving knowledge of it.
+                 """ .
+
+:ZeroKnowledgeProofOfKnowledgeOfSignature a rdfs:Class ;
+    rdfs:subClassOf :ZeroKnowledgeProof, :ProofOfKnowledgeOfSignature;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "zero-knoweldge proof of knowledge of signature" ;
+    rdfs:comment """
+The class of zero-knowledge proofs of knowledge of signatures:
+a statement expressing the fact that the creator of the proof has knowledge of a signature over a (possibly empty) set of values,
+where the verifier of the proof does not learn any additional information other than the fact being true or false (zero-knowledge).
+                 """ .
+
+:ProofOfRangeMembership a rdfs:Class ;
+    rdfs:subClassOf :Proof;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "proof of range membership" ;
+    rdfs:comment """
+The class of proofs of range membership:
+a statement expressing the fact that the creator of the proof has knowledge of a value that is member of a specified value range. 
+This concept is not necessarily zero-knowledge: 
+A creator of the proof may choose to disclose the value, thereby proving that it is member of the specific range.
+                 """ .
+
+:ZeroKnowledgeProofOfRangeMembership a rdfs:Class ;
+    rdfs:subClassOf :ZeroKnowledgeProof, :ProofOfRangeMembership;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "zero-knowledge proof of range membership" ;
+    rdfs:comment """
+The class of zero-knowledge proofs of range membership:
+a statement expressing the fact that the creator of the proof has knowledge of a value that is member of a specified value range,
+where the verifier of the proof does not learn any additional information other than the fact being true or false (zero-knowledge).
+                 """ .
+
+:ProofOfSetMembership a rdfs:Class ;
+    rdfs:subClassOf :Proof;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "proof of set membership" ;
+    rdfs:comment """
+The class of proofs of set membership:
+a statement expressing the fact that the creator of the proof has knowledge of a value that is member of a specified value set. 
+This concept is not necessarily zero-knowledge: 
+A creator of the proof may choose to disclose the value, thereby proving that it is member of the specific set.
+                 """ .
+
+:ProofOfSetNonMembership a rdfs:Class ;
+    rdfs:subClassOf :Proof;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "proof of set non-membership" ;
+    rdfs:comment """
+The class of proofs of set non-membership:
+a statement expressing the fact that the creator of the proof has knowledge of a value that is not member of a specified value set. 
+This concept is not necessarily zero-knowledge: 
+A creator of the proof may choose to disclose the value, thereby proving that it is member of the specific set.
+                 """ .
+
+:ZeroKnowledgeProofOfSetMembership a rdfs:Class ;
+    rdfs:subClassOf :ZeroKnowledgeProof, :ProofOfSetMembership;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "zero-knowledge proof of set membership" ;
+    rdfs:comment """
+The class of zero-knowledge proofs of set membership:
+a statement expressing the fact that the creator of the proof has knowledge of a value that is member of a specified value set,
+where the verifier of the proof does not learn any additional information other than the fact being true or false (zero-knowledge).
+                 """ .
+
+:ZeroKnowledgeProofOfSetNonMembership a rdfs:Class ;
+    rdfs:subClassOf :ZeroKnowledgeProof, :ProofOfSetNonMembership;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "zero-knowledge proof of set non-membership" ;
+    rdfs:comment """
+The class of zero-knowledge proofs of set non-membership:
+a statement expressing the fact that the creator of the proof has knowledge of a value that is not member of a specified value set,
+where the verifier of the proof does not learn any additional information other than the fact being true or false (zero-knowledge).
+                 """ .
+
+####################
+#    Properties    #
+####################
+
+:hasBase a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has base" ;
+    rdfs:comment """
+The property indicates that the (subject) statement has a base (object) encoded as base64. 
+                 """ ;
+    rdfs:domain :Statement ;
+    rdfs:range  xsd:base64Binary .
+
+:hasDiscreteLog a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has discrete log" ;
+    rdfs:comment """
+The property indicates that the (subject) statement has a discrete log (object) encoded as base64. 
+                 """ ;
+    rdfs:domain :Statement ;
+    rdfs:range  xsd:base64Binary .
+
+:hasValueEqualTo a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has a value that is equal to" ;
+    rdfs:comment """
+The property indicates that the (subject) statement has a value that is equal to the value of another statement. 
+                 """ ;
+    rdfs:domain :Statement ;
+    rdfs:range  :Statement .
+
+:accumulates a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "accumulates" ;
+    rdfs:comment """
+The property indicates that the (subject) statement is the accumulation of (object) statements. 
+                 """ ;
+    rdfs:domain :Statement ;
+    rdfs:range  :Statement .
+
+:hasStatement a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "hasStatement" ;
+    rdfs:comment """
+The property indicates that the (subject) verification equation consists of (object) statements that should be equal in value. 
+                 """ ;
+    rdfs:domain :VerificationEquation ;
+    rdfs:range  :Statement .
+
+:hasEquation a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "hasEquation" ;
+    rdfs:comment """
+The property indicates that the (subject) proof has (object) verification equations that should hold true. 
+                 """ ;
+    rdfs:domain :Proof ;
+    rdfs:range  :VerificationEquation .
+
+:comprisedOf a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "is comprised of" ;
+    rdfs:comment """
+The property indicates that the (subject) composite proof has (object) sub-proofs. 
+                 """ ;
+    rdfs:domain :CompositeProof ;
+    rdfs:range  :Proof .
+
+:hasChallenge a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has challenge" ;
+    rdfs:comment """
+The property indicates that the (subject) proof involves the (object) challenge. 
+                 """ ;
+    rdfs:domain :Proof ;
+    rdfs:range  :Challenge .
+
+:calculatedWith a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "calculated with" ;
+    rdfs:comment """
+The property indicates that the (subject) challenge was provided by (object) random oracle. 
+                 """ ;
+    rdfs:domain :Challenge ;
+    rdfs:range  :RandomOracle .
+
+:hasContribution a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has challenge contribution" ;
+    rdfs:comment """
+The property indicates that the (subject) challenge is comprised of the (object) challenge contribution. 
+                 """ ;
+    rdfs:domain :Challenge ;
+    rdfs:range  :ChallengeContribution .
+
+:fromProof a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "contributed by" ;
+    rdfs:comment """
+The property indicates that the (subject) challenge contribution is contributed by the (object) proof. 
+                 """ ;
+    rdfs:domain :ChallengeContribution ;
+    rdfs:range  :Proof .
+
+:contributes a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "contributes" ;
+    rdfs:comment """
+The property indicates that the (subject) challenge contribution is contributing the (object) list. 
+                 """ ;
+    rdfs:domain :ChallengeContribution ;
+    rdfs:range  rdf:List .
+
+:contributesTo
+    rdfs:isDefinedBy <> ;
+    rdfs:label "contributes to" ;
+    rdfs:comment """
+The property indicates that the (subject) challenge contribution is contributing to the (object) proof challenge. 
+                 """ ;
+    rdfs:domain :ChallengeContribution ;
+    rdfs:range  :Challenge .
+
+
+:hasNormalisationAlgortihm a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has data normalisation algorithm" ;
+    rdfs:comment """
+The property indicates that the (subject) signature has been created on data normalised following the (object) normalisation algorithm. 
+                 """ ;
+    rdfs:domain :DigitalSignature ;
+    rdfs:range  :NormalisationAlgorithm .
+
+:hasHashingAlgorithm a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has hashing algorithm" ;
+    rdfs:comment """
+The property indicates that the (subject) signature has been created on data hashed following the (object) hashing algorithm. 
+                 """ ;
+    rdfs:domain :DigitalSignature ;
+    rdfs:range  :HashingAlgorithm .
+
+:hasSignatureScheme a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has signature scheme" ;
+    rdfs:comment """
+The property indicates that the (subject) signature has been created following the (object) signature scheme. 
+                 """ ;
+    rdfs:domain :DigitalSignature ;
+    rdfs:range  :DigitalSignatureScheme .
+
+:hasProofProtocol a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has proof protocol" ;
+    rdfs:comment """
+The property indicates that the (subject) zero-knowledge proof has been created following the (object) zero-knowledge proof protocol. 
+                 """ ;
+    rdfs:domain :ZeroKnowledgeProof ;
+    rdfs:range  :ZeroKnowledgeProofProtocol .
+
+####################
+#    Individuals   #
+####################
+
+:URDNA a :NormalisationAlgorithm ;
+    rdfs:isDefinedBy <https://www.w3.org/TR/rdf-canon/> ;
+    rdfs:label "Universal RDF Dataset Normalisation Algorithm" ;
+    rdfs:comment """
+The Universal RDF Dataset Normalisation Algorithm is currently subject to standardisation.
+                 """ .
+
+:Hogans a :NormalisationAlgorithm ;
+    rdfs:isDefinedBy <https://aidanhogan.com/docs/skolems_blank_nodes_www.pdf> ;
+    rdfs:label "Hogan's Algorithm" ;
+    rdfs:comment """
+Hogan's Algorithm for skolemising blank nodes and normalising RDF graphs and datasets.
+                 """ .
+
+:SHA256 a :RandomOracle ;
+    rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc6234> ;
+    rdfs:label "Secure Hash Algorithm with message digest size 256 bits" .

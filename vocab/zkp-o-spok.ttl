@@ -1,0 +1,134 @@
+@prefix : <#> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+@prefix zkp: <./zkp-o#> .
+
+
+<> a owl:Ontology ;
+    dc:title "Schnorr proof of knowledge of discrete log" ;
+    dc:date "2024-11-06" ;
+    dc:creator [];  # deleted for anon review
+    dc:description """
+This is an RDF vocabulary to model Schnorr proof of knowledge of discrete log.
+The Schnorr proof protocol is an instance of a proof protocol for proving knowledge of discrete log.
+Following the particular protocol produces a corresponding proof.
+That is, there is a class of proofs that were produced following the particular protocol.
+                 """ .
+
+###################
+#    Instances    #
+###################
+:SchnorrProtocol a :ZeroKnowledgeProofProtocol ; 
+    rdfs:isDefinedBy <https://doi.org/10.1007/0-387-34805-0_22> ;
+    rdfs:label "Schnorr protocol" ;
+    rdfs:comment """
+The Schnorr protocol:
+A protocol to prove knowledge of discrete log.
+                 """ .
+
+:SchnorrFiatShamirProtocol a :NonInteractiveZeroKnowledgeProofProtocol ; 
+    rdfs:label "Schnorr protocol using the Fiat-Shamir transformation" ;
+    rdfs:comment """
+The Schnorr protocol using the Fiat-Shamir transformation:
+A protocol to prove knowledge of discrete log, in a non-interactive manner using a 'random oracle' (hash function, assumed to be perfect).
+                 """ .
+
+####################
+#      Classes     #
+####################
+
+:SchnorrPoK a rdfs:Class;
+    rdfs:subClassOf zkp:ZeroKnowledgeProofOfKnowledgeOfDiscreteLog;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "Schnorr Proof of Knoweldge of Discrete Log" ;
+    rdfs:comment """
+The class of zero-knowledge proofs of knowledge of discrete log produced from following the Schnorr protocol.
+The Schnorr Proof of Knowledge (PoK) itself is pi = (u, c, z) 
+which is provided by the prover to a verifier with the verification key h.
+ The verifier knows (g, h, π) and checks the verification equations g^z = u * h^c
+and c = H(g, h, u). If true, the verifier is convinced that the prover knows x.
+Clarifications: Statement u = g^r is called commitment to randomness. 
+A Schnorr response is z = r + cx and c is called the proof challenge.
+                 """ .
+
+:SchnorrResponse a rdfs:Class;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "Schnorr Response" ;
+    rdfs:comment """
+The class of Schnorr response values: z = r + cx where c is the proof challenge, r is randomness and x is the witness.
+                 """ .
+
+####################
+#    Properties    #
+####################
+
+:useVerificationKey a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "use verification key" ;
+    rdfs:comment """
+The property indicates that the (subject) Schnorr PoK has (object) verification key that should be used for verification of the proof. 
+In particular, this verification key is h = g^x .
+                 """ ;
+    rdfs:domain :SchnorrPoK ;
+    rdfs:range  zkp:Statement .
+
+:hasCommitmentToRandomness a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has commitment to randomness" ;
+    rdfs:comment """
+The property indicates that the (subject) Schnorr PoK has (object) commitment to randomness u = g^r. 
+                 """ ;
+    rdfs:domain :SchnorrPoK ;
+    rdfs:range  zkp:Statement .
+
+:hasResponse a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has response" ;
+    rdfs:comment """
+The property indicates that the (subject) Schnorr PoK has (object) Schnorr responses z. 
+                 """ ;
+    rdfs:domain :SchnorrPoK ;
+    rdfs:range  :SchnorrResponse .
+
+:hasWitness a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has witness" ;
+    rdfs:comment """
+The property indicates that the (subject) Schnorr response has (object) witness x. 
+                 """ ;
+    rdfs:domain :SchnorrResponse ;
+    rdfs:range  xsd:base64Binary .
+
+:hasRandomness a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has randomness" ;
+    rdfs:comment """
+The property indicates that the (subject) Schnorr response has (object) randomness r. 
+                 """ ;
+    rdfs:domain :SchnorrResponse ;
+    rdfs:range  xsd:base64Binary .
+
+
+:useStatementFromResponse a rdf:Property ; # ? legacy, I think
+    rdfs:isDefinedBy <> ;
+    rdfs:label "use statement from Schnorr response" ;
+    rdfs:comment """
+The property indicates that the (subject) Schnorr PoK has (object) statement that should be used for verification of the proof. 
+In particular, this property connects the base g of the the verification key to the Schnorr response value, or the base h to the proof challenge.
+                 """ ;
+    rdfs:domain :SchnorrPoK ;
+    rdfs:range  zkp:Statement .
+
+:hasSchnorrResponse a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has Schnorr response" ;
+    rdfs:comment """
+The property indicates that the (subject) RDF term has an  (object) Schnorr response value.
+In particular, this property connects the witness or the blank node indicating the existence of the witness with its Schnorr response value.
+                 """ ;
+    rdfs:domain zkp:Witness ;
+    rdfs:range  :SchnorrResponse .

@@ -1,0 +1,412 @@
+@prefix : <#> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+@prefix zkp: <./zkp-o#> .
+@prefix spok: <./zkp-o-spok#> .
+
+<> a owl:Ontology ;
+    dc:title "LegoGroth16" ;
+    dc:date "2024-11-06" ;
+    dc:creator []; # deleted for anon review
+    dc:description """
+This is an RDF vocabulary to model Dynamic Universal Accumulator's proof of set (non-) membership.
+The Dynamic Universal Accumulator protocol is an instance of a proof protocol for proving that a (secret) value is member or non-member of a set of elements.
+Following the particular protocol produces a corresponding proof.
+That is, there is a class of proofs that were produced following the particular protocol.
+                 """ .
+
+###################
+#    Instances    #
+###################
+:DynamicUniversalAccumulatorProtocol a :ZeroKnowledgeProofProtocol ; 
+    rdfs:isDefinedBy <https://eprint.iacr.org/2020/777> ;
+    rdfs:label "Dynamic Universal Accumulator (uAcc) protocol" ;
+    rdfs:comment """
+The Dynamic Universal Accumulator protocol:
+A protocol to prove that a (secret) value is member or non-member of a set of elements.
+                 """ .
+
+####################
+#      Classes     #
+####################
+
+:PoSNM a rdfs:Class;
+    rdfs:subClassOf zkp:ZeroKnowledgeProofOfSetNonMembership;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2020/777> ;
+    rdfs:label "Dynamic Universal Accumulator Proof of Set Non-Membership" ;
+    rdfs:comment """
+The class of zero-knowledge proofs of set non-membership produced from following the Dynamic Universal Accumulator protocol.
+                 """ .
+:ProvingKey a rdfs:Class ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2019/142.pdf> ;
+    rdfs:label "proving key of Dynamic Universal Accumulator PoSNM" .
+
+:PublicKey a rdfs:Class ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2019/142.pdf> ;
+    rdfs:label "public key of Dynamic Universal Accumulator" .
+
+:UniversalAccumulator a rdfs:Class ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2019/142.pdf> ;
+    rdfs:label "Dynamic Universal Accumulator" ;
+    rdfs:comment """
+The actual accumulator of a set of elements.
+                 """ .
+
+:UniversalAccumulatorParameters a rdfs:Class ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2019/142.pdf> ;
+    rdfs:label "Dynamic Universal Accumulator parameters" ;
+    rdfs:comment """
+The parameters of the accumulator.
+                 """ .
+
+:NonMembershipWitness a rdfs:Class ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2019/142.pdf> ;
+    rdfs:label "non-membership witness" ;
+    rdfs:comment """
+The non-membership witness used in the proof. It is derived from the secret element that is to be proven not to be a member of the set.
+                 """ .
+
+:RandomizedWitness a rdfs:Class ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2019/142.pdf> ;
+    rdfs:label "randomized witness" ;
+    rdfs:comment """
+The randomized witness used for proof verification.
+                 """ .
+
+:Commitments a rdfs:Class ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2019/142.pdf> ;
+    rdfs:label "commitments" ;
+    rdfs:comment """
+The commitments used in the proof.
+                 """ .
+
+:Responses a rdfs:Class ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2019/142.pdf> ;
+    rdfs:label "responses" ;
+    rdfs:comment """
+The responses from the proof, e.g., Schnorr Responses.
+                 """ .
+
+
+####################
+#    Properties    #
+####################
+
+:hasProvingKey a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has proving key" ;
+    rdfs:comment """
+The property indicates that the (subject) Dynamic Universal Accumulator PoSNM has (object) proving key that should be used for verification of the proof. 
+                 """ ;
+    rdfs:domain :PoSNM ;
+    rdfs:range  :ProvingKey .
+
+:hasWitness a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has witness" ;
+    rdfs:comment """
+The property indicates that the (subject) Dynamic Universal Accumulator PoSNM has (object) witness, i.e. the (secret) value that the proof is about. 
+                 """ ;
+    rdfs:domain :PoSNM ;
+    rdfs:range  zkp:Witness .
+
+:hasAccumulator a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has accumulator" ;
+    rdfs:comment """
+The property indicates that the (subject) Dynamic Universal Accumulator PoSNM has (object) accumulator, i.e. the accumulated set of elements where non-membership is proven. 
+                 """ ;
+    rdfs:domain :PoSNM ;
+    rdfs:range  :UniversalAccumulator .
+
+:hasMaxSize a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has maximum size" ;
+    rdfs:comment """
+The property indicates that the (subject) Dynamic Universal Accumulator has (object) a maximum number of elements that it can accumulate.
+                 """ ;
+    rdfs:domain :UniversalAccumulator ;
+    rdfs:range  xsd:nonNegativeInteger .
+
+:hasParameters a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has parameters" ;
+    rdfs:comment """
+The property indicates that the (subject) Dynamic Universal Accumulator has (object) some parameters.
+                 """ ;
+    rdfs:domain :UniversalAccumulator ;
+    rdfs:range  :UniversalAccumulatorParameters .
+
+:P a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has parameters" ;
+    rdfs:comment """
+The property indicates that the (subject) Dynamic Universal Accumulator has parameter P with the (object) value.
+                 """ ;
+    rdfs:domain :UniversalAccumulatorParameters ;
+    rdfs:range  xsd:base64Binary .
+
+:P_tilde a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has parameters" ;
+    rdfs:comment """
+The property indicates that the (subject) Dynamic Universal Accumulator has (object) some parameters.
+                 """ ;
+    rdfs:domain :UniversalAccumulatorParameters ;
+    rdfs:range  xsd:base64Binary .
+
+:hasPublicKey a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has public key" ;
+    rdfs:comment """
+The property indicates that the (subject) Dynamic Universal Accumulator has (object) public key.
+                 """ ;
+    rdfs:domain :UniversalAccumulator ;
+    rdfs:range  :PublicKey .
+
+:hasValue a rdf:Property ; # ? maybe rdf:value would also work?
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has value" ;
+    rdfs:comment """
+The property indicates that the (subject) Dynamic Universal Accumulator has (object) accumulated value.
+That is, the value that results from accumulating all the member elements of the accumulator.
+                 """ ;
+    rdfs:domain :UniversalAccumulator ;
+    rdfs:range  xsd:base64Binary .
+
+:C a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has parameter C" ;
+    rdfs:comment """
+The property indicates that the (subject) non-membership witness has a parameter C with (object) value.
+                 """ ;
+    rdfs:domain :NonMembershipWitness ;
+    rdfs:range  xsd:base64Binary .
+
+:d a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has parameter d" ;
+    rdfs:comment """
+The property indicates that the (subject) non-membership witness has a parameter d with (object) value.
+                 """ ;
+    rdfs:domain :NonMembershipWitness ;
+    rdfs:range  xsd:base64Binary .
+
+:isWitnessOf a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "is witness of" ;
+    rdfs:comment """
+The property indicates that the (subject) non-membership witness is witness of the (object).
+                 """ ;
+    rdfs:domain :NonMembershipWitness ;
+    rdfs:range  zkp:Witness .
+
+:witnessesNotMemberOf a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "witnesses non-membership of" ;
+    rdfs:comment """
+The property indicates that the (subject) non-membership witness witnesses of secret value to not be a member of the (object) accumulator.
+                 """ ;
+    rdfs:domain :NonMembershipWitness ;
+    rdfs:range  :UniversalAccumulator .
+
+:hasRandomizedWitness a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has randomized witness" ;
+    rdfs:comment """
+The property indicates that the (subject) Dynamic Universal Accumulator PoSNM has (object) randomized witness for proof verification. 
+                 """ ;
+    rdfs:domain :PoSNM ;
+    rdfs:range  :RandomizedWitness .
+
+:E_C a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has randomized witness parameter C" ;
+    rdfs:comment """
+The property indicates that the (subject) randomized witness has randomized witness parameter C with (object) value. 
+                 """ ;
+    rdfs:domain :RandomizedWitness ;
+    rdfs:range  xsd:base64Binary .
+
+:E_d a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has randomized witness parameter E_d" ;
+    rdfs:comment """
+The property indicates that the (subject) randomized witness has randomized witness parameter E_d with (object) value. 
+                 """ ;
+    rdfs:domain :RandomizedWitness ;
+    rdfs:range  xsd:base64Binary .
+
+:E_d_inv a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has randomized witness parameter E_d_inv" ;
+    rdfs:comment """
+The property indicates that the (subject) randomized witness has randomized witness parameter E_d_inv with (object) value. 
+                 """ ;
+    rdfs:domain :RandomizedWitness ;
+    rdfs:range  xsd:base64Binary .
+
+:commitment_to_randomness_T_sigma a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has commitment to randomness T_sigma" ;
+    rdfs:comment """
+The property indicates that the (subject) randomized witness has commitment to randomness T_sigma with (object) value. (cf. Schnorr commitment to randomness) 
+                 """ ;
+    rdfs:domain :RandomizedWitness ;
+    rdfs:range  xsd:base64Binary .
+
+:commitment_to_randomness_T_rho a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has commitment to randomness T_rho" ;
+    rdfs:comment """
+The property indicates that the (subject) randomized witness has commitment to randomness T_rho with (object) value. (cf. Schnorr commitment to randomness)
+                 """ ;
+    rdfs:domain :RandomizedWitness ;
+    rdfs:range  xsd:base64Binary .
+
+
+:hasCommitments a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has commitments" ;
+    rdfs:comment """
+The property indicates that the (subject) Dynamic Universal Accumulator PoSNM has (object) commitments. 
+                 """ ;
+    rdfs:domain :PoSNM ;
+    rdfs:range  :Commitments . 
+
+:R_E a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "includes R_E" ;
+    rdfs:comment """
+The property indicates that the (subject) commitments include (object) value of R_E.
+                 """ ;
+    rdfs:domain :Commitments ;
+    rdfs:range  xsd:base64Binary .
+
+:R_sigma a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "includes R_E" ;
+    rdfs:comment """
+The property indicates that the (subject) commitments include (object) value of R_E.
+                 """ ;
+    rdfs:domain :Commitments ;
+    rdfs:range  xsd:base64Binary .
+
+:R_rho a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "includes R_rho" ;
+    rdfs:comment """
+The property indicates that the (subject) commitments include (object) value of R_rho.
+                 """ ;
+    rdfs:domain :Commitments ;
+    rdfs:range  xsd:base64Binary .
+:R_delta_sigma a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "includes R_delta_sigma" ;
+    rdfs:comment """
+The property indicates that the (subject) commitments include (object) value of R_delta_sigma.
+                 """ ;
+    rdfs:domain :Commitments ;
+    rdfs:range  xsd:base64Binary .
+:R_delta_rho a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "includes R_delta_rho" ;
+    rdfs:comment """
+The property indicates that the (subject) commitments include (object) value of R_delta_rho.
+                 """ ;
+    rdfs:domain :Commitments ;
+    rdfs:range  xsd:base64Binary .
+:R_A a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "includes R_A" ;
+    rdfs:comment """
+The property indicates that the (subject) commitments include (object) value of R_A.
+                 """ ;
+    rdfs:domain :Commitments ;
+    rdfs:range  xsd:base64Binary .
+:R_B a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "includes R_B" ;
+    rdfs:comment """
+The property indicates that the (subject) commitments include (object) value of R_B.
+                 """ ;
+    rdfs:domain :Commitments ;
+    rdfs:range  xsd:base64Binary .
+
+:hasResponses a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has responses" ;
+    rdfs:comment """
+The property indicates that the (subject) Dynamic Universal Accumulator PoSNM has (object) responses, e.g., Schnorr responses for secret values in the proof. 
+                 """ ;
+    rdfs:domain :PoSNM ;
+    rdfs:range  :Responses . 
+
+:s_sigma a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "includes response s_sigma" ;
+    rdfs:comment """
+The property indicates that the (subject) responses include (object) response value s_sigma.
+                 """ ;
+    rdfs:domain :Commitments ;
+    rdfs:range  xsd:base64Binary .
+
+:s_rho a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "includes response s_rho" ;
+    rdfs:comment """
+The property indicates that the (subject) responses include (object) response value s_rho.
+                 """ ;
+    rdfs:domain :Commitments ;
+    rdfs:range  xsd:base64Binary .
+
+:s_delta_sigma a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "includes response s_delta_sigma" ;
+    rdfs:comment """
+The property indicates that the (subject) responses include (object) response value s_delta_sigma.
+                 """ ;
+    rdfs:domain :Commitments ;
+    rdfs:range  xsd:base64Binary .
+
+:s_delta_rho a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "includes response s_delta_rho" ;
+    rdfs:comment """
+The property indicates that the (subject) responses include (object) response value s_delta_rho.
+                 """ ;
+    rdfs:domain :Commitments ;
+    rdfs:range  xsd:base64Binary .
+
+:s_u a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "includes response s_u" ;
+    rdfs:comment """
+The property indicates that the (subject) responses include (object) response value s_u.
+                 """ ;
+    rdfs:domain :Commitments ;
+    rdfs:range  xsd:base64Binary .
+
+:s_v a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "includes response s_v" ;
+    rdfs:comment """
+The property indicates that the (subject) responses include (object) response value s_v.
+                 """ ;
+    rdfs:domain :Commitments ;
+    rdfs:range  xsd:base64Binary .
+
+:s_w a rdf:Property ; 
+    rdfs:isDefinedBy <> ;
+    rdfs:label "includes response s_w" ;
+    rdfs:comment """
+The property indicates that the (subject) responses include (object) response value s_w.
+                 """ ;
+    rdfs:domain :Commitments ;
+    rdfs:range  xsd:base64Binary .
+
+

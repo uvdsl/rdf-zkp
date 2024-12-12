@@ -1,0 +1,620 @@
+
+running 15 tests
+test rdf4zkp::encoder::tests::test_dataset_to_field_representations ... ignored
+test rdf4zkp::encoder::tests::test_dataset_to_field_representations_schema ... ignored
+test rdf4zkp::encoder::tests::test_dataset_to_field_representations_trimmed ... ignored
+test rdf4zkp::encoder::tests::test_dataset_to_respone_values ... ignored
+test rdf4zkp::encoder::tests::test_dataset_to_respone_values_schema ... ignored
+test rdf4zkp::encoder::tests::test_dataset_to_respone_values_trimmed ... ignored
+test rdf4zkp::encoder::tests::test_dataset_to_termlist ... ignored
+test rdf4zkp::encoder::tests::test_dataset_to_termlist_schema ... ignored
+test rdf4zkp::encoder::tests::test_dataset_to_termlist_trimmed ... ignored
+test rdf4zkp::encoder::tests::test_encode_bn ... ignored
+test rdf4zkp::encoder::tests::test_encode_datetime_offset ... ignored
+test rdf4zkp::encoder::tests::test_encode_datetime_utc ... ignored
+test rdf4zkp::encoder::tests::test_encode_integer ... ignored
+test rdf4zkp::encoder::tests::test_encode_iri ... ignored
+test rdf4zkp::encoder::tests::test_encode_string ... ignored
+
+test result: ok. 0 passed; 0 failed; 15 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+Gnuplot not found, using plotters backend
+Benchmarking issue (mt)
+Benchmarking issue (mt): Warming up for 3.0000 s
+Benchmarking issue (mt): Collecting 100 samples in estimated 5.8450 s (400 iterations)
+Benchmarking issue (mt): Analyzing
+issue (mt)              time:   [13.016 ms 13.120 ms 13.238 ms]
+                        change: [-0.6637% +0.2973% +1.4145%] (p = 0.56 > 0.05)
+                        No change in performance detected.
+Found 10 outliers among 100 measurements (10.00%)
+  4 (4.00%) high mild
+  6 (6.00%) high severe
+
+Benchmarking prove (mt)
+Benchmarking prove (mt): Warming up for 3.0000 s
+Time taken to create proof: 59.116649ms
+Time taken to create proof: 63.943391ms
+Time taken to create proof: 58.007979ms
+Time taken to create proof: 61.682216ms
+Time taken to create proof: 55.824401ms
+Time taken to create proof: 54.959971ms
+Time taken to create proof: 58.361515ms
+Time taken to create proof: 55.375444ms
+Time taken to create proof: 55.837174ms
+Time taken to create proof: 56.394145ms
+Time taken to create proof: 56.576498ms
+Time taken to create proof: 56.490847ms
+Time taken to create proof: 56.060345ms
+Time taken to create proof: 55.969844ms
+Time taken to create proof: 55.169946ms
+Time taken to create proof: 55.260177ms
+Time taken to create proof: 54.518929ms
+Time taken to create proof: 59.494091ms
+Time taken to create proof: 56.976433ms
+Time taken to create proof: 55.763917ms
+Time taken to create proof: 57.231735ms
+Time taken to create proof: 56.634569ms
+Time taken to create proof: 55.957532ms
+Time taken to create proof: 55.59105ms
+Time taken to create proof: 59.073688ms
+Time taken to create proof: 57.135844ms
+Time taken to create proof: 55.117287ms
+Time taken to create proof: 56.084441ms
+Time taken to create proof: 58.693151ms
+Time taken to create proof: 54.273907ms
+Time taken to create proof: 56.090402ms
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 14.8s, or reduce sample count to 30.
+Benchmarking prove (mt): Collecting 100 samples in estimated 14.841 s (100 iterations)
+Time taken to create proof: 56.749986ms
+Time taken to create proof: 55.982589ms
+Time taken to create proof: 70.962608ms
+Time taken to create proof: 72.590538ms
+Time taken to create proof: 65.700975ms
+Time taken to create proof: 58.538249ms
+Time taken to create proof: 58.964331ms
+Time taken to create proof: 58.766519ms
+Time taken to create proof: 56.572421ms
+Time taken to create proof: 55.285354ms
+Time taken to create proof: 56.72072ms
+Time taken to create proof: 54.823873ms
+Time taken to create proof: 54.215176ms
+Time taken to create proof: 54.772276ms
+Time taken to create proof: 55.468008ms
+Time taken to create proof: 57.265507ms
+Time taken to create proof: 61.898274ms
+Time taken to create proof: 57.402156ms
+Time taken to create proof: 57.241333ms
+Time taken to create proof: 54.972595ms
+Time taken to create proof: 54.991871ms
+Time taken to create proof: 57.131896ms
+Time taken to create proof: 66.633734ms
+Time taken to create proof: 112.785906ms
+Time taken to create proof: 62.156842ms
+Time taken to create proof: 54.168798ms
+Time taken to create proof: 56.337408ms
+Time taken to create proof: 55.472767ms
+Time taken to create proof: 72.163322ms
+Time taken to create proof: 71.736798ms
+Time taken to create proof: 71.691072ms
+Time taken to create proof: 62.847044ms
+Time taken to create proof: 58.652353ms
+Time taken to create proof: 57.087954ms
+Time taken to create proof: 54.615001ms
+Time taken to create proof: 56.60316ms
+Time taken to create proof: 58.585156ms
+Time taken to create proof: 62.302176ms
+Time taken to create proof: 57.472598ms
+Time taken to create proof: 57.364986ms
+Time taken to create proof: 56.724127ms
+Time taken to create proof: 58.360754ms
+Time taken to create proof: 66.022853ms
+Time taken to create proof: 57.049441ms
+Time taken to create proof: 59.639475ms
+Time taken to create proof: 58.036863ms
+Time taken to create proof: 54.911138ms
+Time taken to create proof: 54.719808ms
+Time taken to create proof: 60.65522ms
+Time taken to create proof: 56.160985ms
+Time taken to create proof: 62.388449ms
+Time taken to create proof: 58.819469ms
+Time taken to create proof: 63.615433ms
+Time taken to create proof: 59.329661ms
+Time taken to create proof: 69.558961ms
+Time taken to create proof: 55.845741ms
+Time taken to create proof: 54.732983ms
+Time taken to create proof: 55.671011ms
+Time taken to create proof: 54.571938ms
+Time taken to create proof: 58.15697ms
+Time taken to create proof: 59.476338ms
+Time taken to create proof: 56.690464ms
+Time taken to create proof: 58.667221ms
+Time taken to create proof: 57.89721ms
+Time taken to create proof: 55.789314ms
+Time taken to create proof: 54.41853ms
+Time taken to create proof: 54.924424ms
+Time taken to create proof: 54.475067ms
+Time taken to create proof: 66.629345ms
+Time taken to create proof: 64.820265ms
+Time taken to create proof: 60.36338ms
+Time taken to create proof: 56.053613ms
+Time taken to create proof: 64.692895ms
+Time taken to create proof: 69.870087ms
+Time taken to create proof: 56.63538ms
+Time taken to create proof: 55.625366ms
+Time taken to create proof: 74.96786ms
+Time taken to create proof: 55.518665ms
+Time taken to create proof: 55.781289ms
+Time taken to create proof: 55.989231ms
+Time taken to create proof: 58.261196ms
+Time taken to create proof: 55.705937ms
+Time taken to create proof: 56.120509ms
+Time taken to create proof: 54.7105ms
+Time taken to create proof: 56.689092ms
+Time taken to create proof: 57.593728ms
+Time taken to create proof: 56.149563ms
+Time taken to create proof: 60.913978ms
+Time taken to create proof: 65.583053ms
+Time taken to create proof: 63.112314ms
+Time taken to create proof: 64.428196ms
+Time taken to create proof: 65.30012ms
+Time taken to create proof: 60.148485ms
+Time taken to create proof: 61.178177ms
+Time taken to create proof: 62.369161ms
+Time taken to create proof: 60.605637ms
+Time taken to create proof: 57.952795ms
+Time taken to create proof: 66.272093ms
+Time taken to create proof: 59.96556ms
+Time taken to create proof: 63.001866ms
+Benchmarking prove (mt): Analyzing
+prove (mt)              time:   [155.05 ms 157.54 ms 160.29 ms]
+                        change: [-0.6090% +1.5591% +3.5041%] (p = 0.15 > 0.05)
+                        No change in performance detected.
+Found 4 outliers among 100 measurements (4.00%)
+  3 (3.00%) high mild
+  1 (1.00%) high severe
+
+Benchmarking verify (mt)
+Benchmarking verify (mt): Warming up for 3.0000 s
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.653115ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.622588ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.590277ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.608231ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 20.959154ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.298463ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.598127ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.334079ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.351075ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.617562ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.854198ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.055178ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.783726ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.603917ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.065728ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.235818ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.62145ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.042654ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.420366ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.868306ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.117796ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.637651ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.596989ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.438657ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.117551ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.811414ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 20.979252ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.634871ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.640722ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.476426ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.878434ms, Ok(())
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 12.0s, or reduce sample count to 40.
+Benchmarking verify (mt): Collecting 100 samples in estimated 12.034 s (100 iterations)
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.282195ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.98262ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.839581ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.593307ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.369475ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.177548ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.574621ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.764479ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.633703ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.819743ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.408463ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.631008ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.231384ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.829839ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.315488ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.117699ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 16.753843ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.328974ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.952543ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.453293ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.017887ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.237867ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.06184ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.496634ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.304578ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.633302ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.350054ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.245782ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.053204ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.195552ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.456568ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.222748ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.683563ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.629425ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.511091ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.493995ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.669681ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.700419ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 21.23862ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.528344ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.171507ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.394532ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.251482ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.72213ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.419004ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.996406ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.231274ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.638532ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.289794ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.387764ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.899644ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.713684ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.72234ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.518365ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.018764ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.986398ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.154855ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.437993ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.242866ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.097998ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.555706ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.158843ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.84429ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.55804ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.556136ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 16.771266ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.196113ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.907188ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.56575ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.274071ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.888573ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.678678ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.462961ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.155426ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.156449ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.576335ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.213807ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.070406ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.765741ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.653069ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.281268ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.571445ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.291273ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.67519ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.500071ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.189705ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.855642ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.671209ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.195987ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.920834ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.007227ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.588277ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.295135ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.171852ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.77033ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.225078ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.305981ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.512821ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.837999ms, Ok(())
+Time taken to verify proof of 30 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.318144ms, Ok(())
+Benchmarking verify (mt): Analyzing
+verify (mt)             time:   [113.35 ms 114.41 ms 115.85 ms]
+                        change: [+3.7017% +5.0019% +6.4743%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 5 outliers among 100 measurements (5.00%)
+  2 (2.00%) low severe
+  1 (1.00%) high mild
+  2 (2.00%) high severe
+
+Gnuplot not found, using plotters backend
+Benchmarking issue (schema)
+Benchmarking issue (schema): Warming up for 3.0000 s
+Benchmarking issue (schema): Collecting 100 samples in estimated 5.6193 s (600 iterations)
+Benchmarking issue (schema): Analyzing
+issue (schema)          time:   [8.5081 ms 8.5533 ms 8.6063 ms]
+                        change: [-0.5720% +0.1274% +0.8881%] (p = 0.74 > 0.05)
+                        No change in performance detected.
+Found 7 outliers among 100 measurements (7.00%)
+  5 (5.00%) high mild
+  2 (2.00%) high severe
+
+Benchmarking prove (schema)
+Benchmarking prove (schema): Warming up for 3.0000 s
+Time taken to create proof: 70.967136ms
+Time taken to create proof: 68.491939ms
+Time taken to create proof: 69.372498ms
+Time taken to create proof: 97.132357ms
+Time taken to create proof: 68.904737ms
+Time taken to create proof: 66.300485ms
+Time taken to create proof: 63.8949ms
+Time taken to create proof: 58.582532ms
+Time taken to create proof: 60.365785ms
+Time taken to create proof: 60.302705ms
+Time taken to create proof: 60.273862ms
+Time taken to create proof: 61.23814ms
+Time taken to create proof: 61.860033ms
+Time taken to create proof: 62.154037ms
+Time taken to create proof: 59.731559ms
+Time taken to create proof: 63.02534ms
+Time taken to create proof: 60.813388ms
+Time taken to create proof: 57.963365ms
+Time taken to create proof: 62.598245ms
+Time taken to create proof: 59.513147ms
+Time taken to create proof: 61.262245ms
+Time taken to create proof: 60.841192ms
+Time taken to create proof: 57.368502ms
+Time taken to create proof: 57.843427ms
+Time taken to create proof: 56.07869ms
+Time taken to create proof: 56.658915ms
+Time taken to create proof: 57.549864ms
+Time taken to create proof: 56.070735ms
+Time taken to create proof: 61.1429ms
+Time taken to create proof: 57.469092ms
+Time taken to create proof: 57.264486ms
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 15.9s, or reduce sample count to 30.
+Benchmarking prove (schema): Collecting 100 samples in estimated 15.925 s (100 iterations)
+Time taken to create proof: 66.371089ms
+Time taken to create proof: 64.193503ms
+Time taken to create proof: 61.63601ms
+Time taken to create proof: 64.411223ms
+Time taken to create proof: 66.879528ms
+Time taken to create proof: 61.274268ms
+Time taken to create proof: 56.74696ms
+Time taken to create proof: 55.756923ms
+Time taken to create proof: 56.655869ms
+Time taken to create proof: 56.739687ms
+Time taken to create proof: 61.789399ms
+Time taken to create proof: 57.378212ms
+Time taken to create proof: 60.554069ms
+Time taken to create proof: 56.563784ms
+Time taken to create proof: 57.063187ms
+Time taken to create proof: 55.759679ms
+Time taken to create proof: 60.215691ms
+Time taken to create proof: 56.901943ms
+Time taken to create proof: 56.013688ms
+Time taken to create proof: 56.155786ms
+Time taken to create proof: 56.86859ms
+Time taken to create proof: 56.703177ms
+Time taken to create proof: 61.788238ms
+Time taken to create proof: 59.145754ms
+Time taken to create proof: 58.0988ms
+Time taken to create proof: 57.483078ms
+Time taken to create proof: 56.91133ms
+Time taken to create proof: 56.126921ms
+Time taken to create proof: 57.643752ms
+Time taken to create proof: 56.517277ms
+Time taken to create proof: 58.715552ms
+Time taken to create proof: 56.367154ms
+Time taken to create proof: 58.250165ms
+Time taken to create proof: 56.148251ms
+Time taken to create proof: 56.775894ms
+Time taken to create proof: 56.054955ms
+Time taken to create proof: 60.889512ms
+Time taken to create proof: 55.978351ms
+Time taken to create proof: 56.838322ms
+Time taken to create proof: 57.157675ms
+Time taken to create proof: 56.432537ms
+Time taken to create proof: 56.427457ms
+Time taken to create proof: 56.392211ms
+Time taken to create proof: 59.063649ms
+Time taken to create proof: 58.478926ms
+Time taken to create proof: 62.633451ms
+Time taken to create proof: 56.86318ms
+Time taken to create proof: 56.443709ms
+Time taken to create proof: 56.256896ms
+Time taken to create proof: 61.06281ms
+Time taken to create proof: 57.397848ms
+Time taken to create proof: 64.847405ms
+Time taken to create proof: 62.782342ms
+Time taken to create proof: 67.833577ms
+Time taken to create proof: 57.436992ms
+Time taken to create proof: 57.902269ms
+Time taken to create proof: 64.841385ms
+Time taken to create proof: 63.552774ms
+Time taken to create proof: 61.623987ms
+Time taken to create proof: 64.227096ms
+Time taken to create proof: 65.811594ms
+Time taken to create proof: 64.396846ms
+Time taken to create proof: 65.469679ms
+Time taken to create proof: 65.05151ms
+Time taken to create proof: 62.403817ms
+Time taken to create proof: 64.13361ms
+Time taken to create proof: 62.544022ms
+Time taken to create proof: 57.518135ms
+Time taken to create proof: 57.459714ms
+Time taken to create proof: 56.123455ms
+Time taken to create proof: 56.229985ms
+Time taken to create proof: 57.141435ms
+Time taken to create proof: 57.416522ms
+Time taken to create proof: 57.771232ms
+Time taken to create proof: 56.705172ms
+Time taken to create proof: 57.193492ms
+Time taken to create proof: 56.659977ms
+Time taken to create proof: 65.796265ms
+Time taken to create proof: 64.065211ms
+Time taken to create proof: 63.792677ms
+Time taken to create proof: 64.130364ms
+Time taken to create proof: 62.314058ms
+Time taken to create proof: 61.016773ms
+Time taken to create proof: 83.121426ms
+Time taken to create proof: 57.073847ms
+Time taken to create proof: 56.351124ms
+Time taken to create proof: 66.47782ms
+Time taken to create proof: 62.466065ms
+Time taken to create proof: 61.888827ms
+Time taken to create proof: 61.303443ms
+Time taken to create proof: 64.96112ms
+Time taken to create proof: 61.094498ms
+Time taken to create proof: 59.069561ms
+Time taken to create proof: 57.828981ms
+Time taken to create proof: 56.741649ms
+Time taken to create proof: 55.788182ms
+Time taken to create proof: 55.743347ms
+Time taken to create proof: 57.16028ms
+Time taken to create proof: 56.480779ms
+Time taken to create proof: 56.377634ms
+Benchmarking prove (schema): Analyzing
+prove (schema)          time:   [154.93 ms 156.50 ms 158.15 ms]
+                        change: [-16.659% -13.674% -10.679%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+
+Benchmarking verify (schema)
+Benchmarking verify (schema): Warming up for 3.0000 s
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.427419ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.761995ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.408297ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.491895ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.460666ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.01717ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.703044ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.67487ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.214543ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.166588ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.601753ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.232585ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.157721ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.597109ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 28.749926ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.212881ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.846129ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.658485ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.099477ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.846269ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.566582ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.165897ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.83081ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.092414ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.326228ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.45638ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.47007ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.173841ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.40129ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.506432ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.365888ms, Ok(())
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 11.8s, or reduce sample count to 40.
+Benchmarking verify (schema): Collecting 100 samples in estimated 11.770 s (100 iterations)
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.797061ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.178734ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.666424ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.763297ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.432042ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.456619ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.905124ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.15713ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.191775ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.166718ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.094547ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.605827ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.9556ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.343111ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 16.347267ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.062471ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.88164ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.618785ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.376898ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.582086ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.016434ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.296106ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.655795ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.22892ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.403905ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.815856ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.177217ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.057101ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.124457ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.967392ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.023061ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.489511ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.883534ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.408398ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.175144ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.962984ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.730235ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.675051ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.741101ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.760943ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.788775ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.220213ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.894484ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.564983ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.912509ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.075055ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.729294ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.315479ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.602414ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.910755ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.739663ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.397377ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.143284ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.873345ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.022502ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 16.490667ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.89748ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.944485ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.56573ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.574136ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.418603ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.549714ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.128951ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.624385ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.028417ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.123391ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.382259ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.375546ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.867444ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.615951ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.899961ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.414896ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.714026ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.574352ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.721198ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.483591ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.235023ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 23.939554ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.687174ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 16.873078ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.978769ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.348567ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.238279ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.666451ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.655129ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.545486ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.140673ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.851273ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.431797ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 23.250154ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 22.413787ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 19.674611ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.60286ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.094396ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.65307ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.144561ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.216211ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 18.235026ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 16.928613ms, Ok(())
+Time taken to verify proof of 8 msg POKS, with 1 RANGE and 1 NON-MEMBER: 17.75419ms, Ok(())
+Benchmarking verify (schema): Analyzing
+verify (schema)         time:   [114.34 ms 116.13 ms 118.15 ms]
+                        change: [-3.1357% -0.7758% +1.7081%] (p = 0.53 > 0.05)
+                        No change in performance detected.
+Found 8 outliers among 100 measurements (8.00%)
+  3 (3.00%) high mild
+  5 (5.00%) high severe
+

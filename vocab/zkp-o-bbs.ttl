@@ -1,0 +1,244 @@
+@prefix : <#> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+
+@prefix zkp: <./zkp-o#> .
+@prefix spok: <./zkp-o-spok#> .
+
+
+<> a owl:Ontology ;
+    dc:title "BBS+ signature and proof of knowledge" ;
+    dc:date "2024-11-06" ;
+    dc:creator []; # deleted for anon review
+    dc:description """
+This is an RDF vocabulary to model BBS+ signatures and proof of knowledges.
+The BBS+ scheme and proof protocol are instances of their respective generic classes.
+Following the particular scheme and protocol produces corresponding signatures and proofs.
+That is, there is a class of signatures and proofs that were produced following the particular scheme and protocol.
+                 """ .
+
+###################
+#    Instances    #
+###################
+    
+:SignatureScheme a zkp:MultiMessageSignatureScheme ; 
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "BBS+ signature scheme" ;
+    rdfs:comment """
+The "Boneh-Boyen-Shacham plus" signature scheme:
+BBS signatures were implicitly proposed by Boneh, Boyen, and Shacham (CRYPTO '04) as part of their group signature scheme, and explicitly cast as stand-alone signatures by Camenisch and Lysyanskaya (CRYPTO '04). 
+A provably secure version, called BBS+, was then devised by Au, Susilo, and Mu (SCN '06).
+                 """ .
+
+:PoksProtocol a zkp:NonInteractiveZeroKnowledgeProofProtocol ; 
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "protocol for proof of knowledge of BBS+ signature" ;
+    rdfs:comment """
+The "Boneh-Boyen-Shacham plus" proof of knowledge of signature protocol:
+Protocol to construct a proof of knowledge of BBS plus signature from a BBS plus signature.
+It can be used for selective disclosure of signed messages.
+                 """ .
+
+####################
+#      Classes     #
+####################
+
+:Signature a rdfs:Class;
+    rdfs:subClassOf zkp:MultiMessageSignature;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "BBS+ signature" ;
+    rdfs:comment """
+The class of BBS+ signatures from following the BBS+ scheme.
+                 """ .
+
+:PoKS a rdfs:Class;
+    rdfs:subClassOf zkp:ZeroKnowledgeProofOfKnowledgeOfSignature;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "proof of Knowledge of BBS+ Signature" ;
+    rdfs:comment """
+The class of proofs of knowledge of BBS+ signature from following the BBS+ scheme.
+                 """ .
+
+:PublicKey a rdfs:Class ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "public key of (verification key and bases for) BBS+ Signature" ;
+    rdfs:comment """
+The paper defines the verification key to only be public parameter w, but we group all the public bases with that in the public key.
+                 """ .
+
+:SignatureParameters a rdfs:Class ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "parameters of a BBS+ Signature" ;
+    rdfs:comment """
+The class of parameters that may be used to create a BBS+ Signature.
+                 """ .
+
+:SPK1 a rdfs:Class;
+    rdfs:subClassOf spok:SchnorrPok ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "Signature Proof of Knowledge (Part 1)" ;
+    rdfs:comment """
+The proof for the first part of the signature proof of knowledge from the paper. We use a SchnorrPoK.
+                 """ .
+
+:SPK2 a rdfs:Class;
+    rdfs:subClassOf spok:SchnorrPok ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "Signature Proof of Knowledge (Part 2)" ;
+    rdfs:comment """
+The proof for the second part of the signature proof of knowledge from the paper. We use a SchnorrPoK.
+                 """ .
+
+####################
+#    Properties    #
+####################
+
+:A_prime a rdf:Property ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "has parameter A prime" ;
+    rdfs:comment """
+The property indicates that the (subject) PoKS has an (object) A prime value.
+                 """ ;
+    rdfs:domain :PoKS ;
+    rdfs:range  xsd:base64Binary .
+
+:A_bar a rdf:Property ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "has parameter A bar" ;
+    rdfs:comment """
+The property indicates that the (subject) PoKS has an (object) A bar value.
+                 """ ;
+    rdfs:domain :PoKS ;
+    rdfs:range  xsd:base64Binary .
+
+:d  a rdf:Property ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "has parameter d" ;
+    rdfs:comment """
+The property indicates that the (subject) PoKS has an (object) d value.
+                 """ ;
+    rdfs:domain :PoKS ;
+    rdfs:range  xsd:base64Binary .
+
+:hasResponseValueFor_e  a rdf:Property ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "has response value for e" ;
+    rdfs:comment """
+The property indicates that the (subject) SPK1  has an (object) response value for signature parameter e.
+                 """ ;
+    rdfs:domain :SPK1 ;
+    rdfs:range  xsd:base64Binary .
+
+:hasResponseValueFor_r2 a rdf:Property ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "has response value for r2" ;
+    rdfs:comment """
+The property indicates that the (subject) SPK1  has an (object) response value for randomness r2.
+                 """ ;
+    rdfs:domain :SPK1 ;
+    rdfs:range  xsd:base64Binary .
+
+:hasResponseValueFor_r3 a rdf:Property ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "has response value for r3" ;
+    rdfs:comment """
+The property indicates that the (subject) SPK2  has an (object) response value for randomness r3.
+                 """ ;
+    rdfs:domain :SPK2 ;
+    rdfs:range  xsd:base64Binary .
+
+:hasResponseValueFor_a_prime  a rdf:Property ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "has response value for A prime" ;
+    rdfs:comment """
+The property indicates that the (subject) SPK2  has an (object) proof parameter value A prime.
+                 """ ;
+    rdfs:domain :SPK2 ;
+    rdfs:range  xsd:base64Binary .
+
+:hasSignatureParams  a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has response value for A prime" ;
+    rdfs:comment """
+The property indicates that the (subject) BBS+ public key is comprised of the (object) signature parameters.
+                 """ ;
+    rdfs:domain :PublicKey ;
+    rdfs:range  :SignatureParameters .
+
+:g1 a rdf:Property ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "has generator g1 of" ;
+    rdfs:comment """
+The property indicates that the (subject) signature parameters have the (object) g1 element, a generator of finite cyclic group G1.
+                 """ ;
+    rdfs:domain :SignatureParameters ;
+    rdfs:range  xsd:base64Binary .
+
+:g2 a rdf:Property ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "has generator g2 of" ;
+    rdfs:comment """
+The property indicates that the (subject) signature parameters have the (object) g2 element, a generator of finite cyclic group G2.
+                 """ ;
+    rdfs:domain :SignatureParameters ;
+    rdfs:range  xsd:base64Binary .
+
+:h_0 a rdf:Property ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "has base h_0 of" ;
+    rdfs:comment """
+The property indicates that the (subject) signature parameters have the (object) h_0 element, a randomly sampled element of finite cyclic group G1.
+                 """ ;
+    rdfs:domain :SignatureParameters ;
+    rdfs:range  xsd:base64Binary .
+
+:h_i a rdf:Property ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "has the list of h_i" ;
+    rdfs:comment """
+The property indicates that the (subject) signature parameters have a (object) list of h elements with index i, where all elements are randomly sampled from of finite cyclic group G1.
+The length of the list, i.e. the value of i, is the (exact) number of messages that can be signed using the (subject) signature parameters. 
+                 """ ;
+    rdfs:domain :SignatureParameters ;
+    rdfs:range  rdf:List .
+
+:w a rdf:Property ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "has verification key w" ;
+    rdfs:comment """
+The property indicates that the (subject) signature parameters have the (object) w element, the verification key w = g2 ^ x with x being the secret key.
+                 """ ;
+    rdfs:domain :SignatureParameters ;
+    rdfs:range  xsd:base64Binary .
+
+:A a rdf:Property ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "has value for A of" ;
+    rdfs:comment """
+The property indicates that the (subject) signature proof value has the (object) value for A.
+                 """ ;
+    rdfs:domain cred:ProofValue ;
+    rdfs:range  xsd:base64Binary .
+
+:e a rdf:Property ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "has value for e of" ;
+    rdfs:comment """
+The property indicates that the (subject) signature proof value has the (object) value for e.
+                 """ ;
+    rdfs:domain cred:ProofValue ;
+    rdfs:range  xsd:base64Binary .
+
+:s a rdf:Property ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2016/663> ;
+    rdfs:label "has value for s of" ;
+    rdfs:comment """
+The property indicates that the (subject) signature proof value has the (object) value for s.
+                 """ ;
+    rdfs:domain cred:ProofValue ;
+    rdfs:range  xsd:base64Binary .

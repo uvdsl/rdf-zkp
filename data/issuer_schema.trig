@@ -1,0 +1,68 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX cred: <https://www.w3.org/2018/credentials#>
+PREFIX zkp: <https://ex.org/zkp/v0#>
+PREFIX spok: <https://ex.org/spok/v0#>
+PREFIX bbsp16: <https://ex.org/bbs+/v0#>
+PREFIX lg16: <https://ex.org/lg16/v0#>
+PREFIX uacc: <https://ex.org/uacc/v0#>
+
+<http://example.org/credentials#credId>
+  cred:credentialStatus <http://example.org/revocation#accumulatorId>;
+  cred:credentialSubject <http://example.org/users#userId>;
+  cred:issuer <http://example.org/organisations#aCompany>;
+  cred:proof _:signatureGraph;
+  cred:validUntil "2023-11-07T13:20:00Z"^^xsd:dateTimeStamp.
+
+<http://example.org/users#userId>
+  org:headOf <http://example.org/organisations#aCompany>;
+  org:memberOf <http://example.org/organisations#aCompany>.
+
+GRAPH <http://example.org/keys> {
+  <http://example.org/keys#aCompanyKey> a bbsp16:PublicKey;
+    bbsp16:hasSignatureParams [
+        bbsp16:g1 "tIdGTFcXs5nUbjLVpHM5LEEZvTwInhPjhWucmb0axVraWyNT25ORyvL3TIqUyZjD"^^xsd:base64Binary;
+        bbsp16:g2 "ic5mwQ68LsdAJ58ObmBumRhB7a0SDqOw07Qq8UofyFYpODYus3ni/kBASPAspOEVDCXjG3mfHDH0zt/+x1T9Sf0CRCgylG/o1xV08FmwCNyrmKdGUg741Eud0z/wAXEc"^^xsd:base64Binary;
+        bbsp16:h_0 "sI1c3Wu9datS0dsyF4J98Yzjt79Y8/aPTRdg1pKLwl38XyLBuwE97Wsw72zu91xc"^^xsd:base64Binary;
+        bbsp16:h_i (
+            "rF8gI00CJJDHfBj5qeyEWBGp+qU5NhsWbudS3dHMcboqLDfZsLHUO43QSZTZuNoE"^^xsd:base64Binary
+            "t7FIQ/nAeMKMIDQdQ1NYzRUOzevbq32IChOXzWg0bo3Uw0fU76qtMpeSN6cZacQe"^^xsd:base64Binary
+            "jwDrdZFuzAFZTGtMbX0sbCI4UEiP9WspSOKN1YkPqQobAYXU2qslEc53xDDXxN00"^^xsd:base64Binary
+            "t+BJDoye2IGMxrNTnHpasSLcCgRIjirpevhqf/wEGwBwxqETeBFDMgImTScKn7+s"^^xsd:base64Binary
+            "l5R/pZtKi4eT0ff5vOtYe00wSp6c3/u16U2IMuz+elPrJupHiDndgeDQj/po6AXg"^^xsd:base64Binary
+            "gazzYL+xtin7DUYyHmjIl2keSQ6DsMW6jYz/zLxMvQ0D3Qb4PK9UyCW8oOPiV8jr"^^xsd:base64Binary
+            "sA1O9Sp2Znd3D/O3dz2oLE7b68ccO4nrz9ufGy6tqegShTNdDVoTTIYQO9xg2sUD"^^xsd:base64Binary
+            "pQYwmJ2huk3Oz+dYLDKE/OXBafC7+vWXmrt0LAji0rL1cSiRdopP98AKdFWGEOC2"^^xsd:base64Binary
+          )];
+    bbsp16:w "txKXkjl78HJ6VmhtUYCqk9J3ze+3pUG9aEM1GEF2srBxf4i48YNii0c7O4pUfxlCFZK4/YhLKJbrd9551ndz+TxZ6IR2W6XLQvmlfGyQWX3OSHlw+8hH296UkjOLEKs2"^^xsd:base64Binary.
+}
+
+GRAPH <http://example.org/revocation> {
+  <http://example.org/revocation#accumulatorId> a <https://ex.org/ns_uacc/v0#UniversalAccumulator>;
+    <https://ex.org/ns_uacc/v0#hasMaxSize> "128"^^xsd:nonNegativeInteger;
+    <https://ex.org/ns_uacc/v0#hasParameters> [
+        <https://ex.org/ns_uacc/v0#P> "g+mkloEMyktvpuCfp9Su1IcW3a2so0vMNJ/jltzIv+OLqcoI0iGwRNCh+iWzsTj3"^^xsd:base64Binary;
+        <https://ex.org/ns_uacc/v0#P_tilde> "o1fGWve0AjQsYYbgoWn6wJUeGNh6nVzA/LhIkDIwA+oHK8pf38VPJjDcPzYvNfV0GVUA4GKVgrL0LGHoz80h2bHLlG5kKdJgeLP3zyA1JrH3pLBslf5pBJS4TRKwioz+"^^xsd:base64Binary];
+    <https://ex.org/ns_uacc/v0#hasPublicKey> [
+        rdf:value "oMzf6vOAV66wL8xx2V3S3uDItFuOI27yPuI3krHbAJZ1+ScCj7evHj48/B/+GBd9AIUQebb5hHu7oBKZxfiVdlU5yy25Qcmv/sqqmq3KGjvvII71NMXXtoJFQe4NNk+B"^^xsd:base64Binary];
+    <https://ex.org/ns_uacc/v0#hasValue> "i7aGSO0+o+2taUifQaktR0NGb3FMOQAJR8yVaxmCemWjuVSFhuK02wXg4ba3SA9Z"^^xsd:base64Binary.
+}
+
+GRAPH _:signatureGraph {
+  [] a bbsp16:BbbsPlus16GLDS;
+    cred:proofValue [
+        bbsp16:A "qVH76/07BUcr8Pf76pc08+6ep2jlcFGS1Ii7BdG5fZsf6kto4w+gvjnYZBbV4Xj/"^^xsd:base64Binary;
+        bbsp16:e "J/Bv1YlHL+sfUZMepgpWeh32LVb/uFQ0j3MajVgUqGk="^^xsd:base64Binary;
+        bbsp16:s "215DErtAOZ7VewTW0tv+5HTAcS3X0DOmP0zPQeS9VnI="^^xsd:base64Binary];
+    cred:verificationMethod <http://example.org/keys#aCompanyKey>.
+}
+
+GRAPH _:witnessInfo {
+  [] a <https://ex.org/ns_uacc/v0#NonMembershipWitness>;
+    <https://ex.org/ns_uacc/v0#C> "i1Y1e7aMx3XDycNkXP5lnu4ykKLATG4UGzlMdA4H5RGJTyWF/lWtmDP+Gb0/423C"^^xsd:base64Binary;
+    <https://ex.org/ns_uacc/v0#d> "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="^^xsd:base64Binary;
+    <https://ex.org/ns_uacc/v0#isWitnessOf> <http://example.org/credentials#credId>;
+    <https://ex.org/ns_uacc/v0#witnessesNotMemberOf> <http://example.org/revocation#accumulatorId>.
+}

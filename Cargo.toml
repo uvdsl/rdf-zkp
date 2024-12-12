@@ -1,0 +1,92 @@
+[package]
+name = "rdf-zkp"
+version = "0.0.2"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "demo_lib"
+path = "src/lib.rs"
+
+
+[dependencies]
+dock_crypto_utils = { path="dock/crypto/utils" }
+proof_system = { path="dock/crypto/proof_system" }
+schnorr_pok = { path="dock/crypto/schnorr_pok" }
+legogroth16 = { path="dock/crypto/legogroth16" }
+# legogroth16 = { version = "0.6.0" , default-features = false }
+vb_accumulator = { path="dock/crypto/vb_accumulator" }
+bbs_plus = { path="dock/crypto/bbs_plus" }
+ark-ff = { version = "^0.4.1", default-features = false }
+ark-ec = { version = "^0.4.1", default-features = false }
+ark-std = { version = "^0.4.0", default-features = false}
+ark-poly = { version = "^0.4.1", default-features = false }
+ark-serialize = { version = "^0.4.1", default-features = false, features = [ "derive" ] }
+ark-relations = { version = "^0.4.0", default-features = false }
+ark-r1cs-std = { version = "^0.4.0", default-features = false }
+ark-groth16 = { version = "^0.4.0", default-features = false }
+rayon = { version = "1" }
+digest = { version = "0.10", default-features = false, features = ["alloc"] }
+serde = { version = "1.0", default-features = false, features = ["derive"] }
+serde_with = { version = "1.10.0", default-features = false, features = ["macros"] }
+serde_json = "1"
+zeroize = { version = "1.6.0", features = ["derive"] }
+blake2 = { version = "0.10", default-features = false }
+ark-bls12-381 = { version = "^0.4.0", default-features = false, features = [ "curve" ] }
+merlin = { version = "^3.0", default-features = false }
+
+sophia = "0.8"
+rio_api = { version = "0.8", features = ["generalized"] }
+
+chrono = "0.4.38"
+base64 = "0.22.1"
+
+# zmix = { path = "hyperledger/ursa/libzmix" }
+
+[dev-dependencies]
+criterion = { version = "0.3", features = ["html_reports"] }
+
+[[bench]]
+name = "model-theory"
+harness = false
+
+[[bench]]
+name = "schema"
+harness = false
+
+[[bin]]
+name = "_demo"
+bench = false
+
+[[bin]]
+name = "_rdf"
+bench = false
+
+[[bin]]
+name = "_zkp_poc"
+bench = false
+
+[[bin]]
+name = "issuer"
+bench = false
+
+[[bin]]
+name = "prover"
+bench = false
+
+[[bin]]
+name = "verifier"
+bench = false
+
+[[bin]]
+name = "issuer_schema"
+bench = false
+
+[[bin]]
+name = "prover_schema"
+bench = false
+
+[[bin]]
+name = "verifier_schema"
+bench = false

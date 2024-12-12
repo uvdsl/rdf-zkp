@@ -1,0 +1,95 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX cred: <https://www.w3.org/2018/credentials#>
+PREFIX zkp: <https://ex.org/zkp/v0#>
+PREFIX spok: <https://ex.org/spok/v0#>
+PREFIX bbsp16: <https://ex.org/bbs+/v0#>
+PREFIX lg16: <https://ex.org/lg16/v0#>
+PREFIX uacc: <https://ex.org/uacc/v0#>
+
+<http://example.org/credentials#credId>
+  cred:credentialStatus <http://example.org/revocation#accumulatorId>;
+  cred:credentialSubject <http://example.org/users#userId>;
+  cred:issuer <http://example.org/organisations#aCompany>;
+  cred:proof _:signatureGraph;
+  cred:validUntil "2023-11-07T13:20:00Z"^^xsd:dateTimeStamp.
+
+<http://example.org/users#userId>
+  org:headOf <http://example.org/organisations#aCompany>;
+  org:memberOf <http://example.org/organisations#aCompany>.
+
+GRAPH <http://example.org/keys> {
+  <http://example.org/keys#aCompanyKey> a bbsp16:PublicKey;
+    bbsp16:hasSignatureParams [
+        bbsp16:g1 "gfTncpO80a5HaWFWl9beCihNDa/qGdeg96UFYRgeUWk0xVqDCqRvbALVLJI3KF+g"^^xsd:base64Binary;
+        bbsp16:g2 "on82iOlxraLc7BK3iygAAMPnW30d+JmXV5H1LjmoFXeM6ohyTA+P1aAtbXYVguTNGevuiRS1GF0o2WhHD1DFFzhVshAk/rfg6N0yp6Thdxqz11clhgrUVHDC6wlleCn7"^^xsd:base64Binary;
+        bbsp16:h_0 "g8MxHWzSTDHyyRFC6NOqD2Q51BXWP6LmRsV+Qm4uBu4cihUq6Xnck72ICn8vBCxT"^^xsd:base64Binary;
+        bbsp16:h_i (
+            "rF8gI00CJJDHfBj5qeyEWBGp+qU5NhsWbudS3dHMcboqLDfZsLHUO43QSZTZuNoE"^^xsd:base64Binary
+            "t7FIQ/nAeMKMIDQdQ1NYzRUOzevbq32IChOXzWg0bo3Uw0fU76qtMpeSN6cZacQe"^^xsd:base64Binary
+            "jwDrdZFuzAFZTGtMbX0sbCI4UEiP9WspSOKN1YkPqQobAYXU2qslEc53xDDXxN00"^^xsd:base64Binary
+            "t+BJDoye2IGMxrNTnHpasSLcCgRIjirpevhqf/wEGwBwxqETeBFDMgImTScKn7+s"^^xsd:base64Binary
+            "l5R/pZtKi4eT0ff5vOtYe00wSp6c3/u16U2IMuz+elPrJupHiDndgeDQj/po6AXg"^^xsd:base64Binary
+            "gazzYL+xtin7DUYyHmjIl2keSQ6DsMW6jYz/zLxMvQ0D3Qb4PK9UyCW8oOPiV8jr"^^xsd:base64Binary
+            "sA1O9Sp2Znd3D/O3dz2oLE7b68ccO4nrz9ufGy6tqegShTNdDVoTTIYQO9xg2sUD"^^xsd:base64Binary
+            "pQYwmJ2huk3Oz+dYLDKE/OXBafC7+vWXmrt0LAji0rL1cSiRdopP98AKdFWGEOC2"^^xsd:base64Binary
+            "tIdGTFcXs5nUbjLVpHM5LEEZvTwInhPjhWucmb0axVraWyNT25ORyvL3TIqUyZjD"^^xsd:base64Binary
+            "q0nYAZW/AQEle5quCfZMSAbXfKVoEtpD1yVkqMcWtRMjiQYRmpD3yHndqvlbcKlc"^^xsd:base64Binary
+            "p+Gb8ULkWdIifYIq392kz97qiE+uYj4UXr8+Egy+4oOX2awoJL5qzA3UvzAWluBV"^^xsd:base64Binary
+            "jouQ0AhDV1BZe3NK64HNKh7rZNyLiLW/XwS5XphcMfkfA0x6jSRQcvCFyibr8GFT"^^xsd:base64Binary
+            "jDG5c0h8AfGLkwBLZtatSDkdiRRcKypxSFKIoYzvIXouNbFcW8luhc/DTTNzPVmu"^^xsd:base64Binary
+            "jQYWS8PuiDm6jGbBl9ytgdq4vRbyHTm6kL9AEGU8KCV9/7t2mzdDjXrvORPVDkC/"^^xsd:base64Binary
+            "q+/uzBvrRpZU07VZETh+dWK0nyxM7epQtw9kQhif7Epmov7zHeTBeI/61zazhcXU"^^xsd:base64Binary
+            "gsQSSUfbmEaThFOAcqAnAsbKgEp1P41+vyjy04TIqYPsFfR4RDE6Jw85aaGxqo2I"^^xsd:base64Binary
+            "oKI2w6s1Hxt35b3T7bAxaLvnBfcLLtC4Ez0eimkb8OjB/BeWL1FvIjcryhIdOESp"^^xsd:base64Binary
+            "onZII1GukQdPsH+B+e0PKcsmiuHYTVc/l35qKWNd4yZYB7u7ZuPgAPuRGg4685xh"^^xsd:base64Binary
+            "juSwV+zNyjojdTgXA6uImviY8Hp3ZIUcUZuY/xDjJaBcritF3f0IxGBzIDx+wRp5"^^xsd:base64Binary
+            "hTkPFa2uu1yzSXU4CGGOUfPkuczuuxBaXvxZaKqULftyC57UTBIBborBgcsIm2Ho"^^xsd:base64Binary
+            "pFkdlxjuKqvbxB0YwcIUhSBx/awbNffgTTUDdIgT6f6p7DQO2mJP9N4/P2fY+uex"^^xsd:base64Binary
+            "lzhGtBN08l8iuAoUCTWKOYML+0wB46HNplhS3H56p7GfER0hi6A9tz3Cm9CSFVX1"^^xsd:base64Binary
+            "pNRtecOMLRmB1GgS4il34/oHOdj5qv0nIPF+bwF/mG/QvYZ+2z4rtairk32Dw5Hk"^^xsd:base64Binary
+            "lYsZEvc+leThA8oht+Y05VQDIv9zlu9tSucZ7Lnv5Wdv1ReP6UAhA7VCYUV6DmtM"^^xsd:base64Binary
+            "iov9B8ia1HLj6EKyL3I70L/dImB0YNdpmJ+qN58ipKnNHAdJ8SNKQUsDymUjNPZO"^^xsd:base64Binary
+            "h080NgIua8JnPkn3ErcGaj1JGjV+7nhk5lUWaojwy1LTi3a192wsbSnFe1j5DQkD"^^xsd:base64Binary
+            "gxM8R7sl1PhTRaQnkGOgWC95HaLHa3nwDLmxAMJ2EKxvELSknJ9CyNypD0BShdtg"^^xsd:base64Binary
+            "qulS7Eor445PTz5q+EvBuVNzkAVX4S5ktOOYi+Qj2rWFwnm6XhyDnUu2xr74Dm7k"^^xsd:base64Binary
+            "pkZDvu5vkeVzVH4HyDEh1YN63rfI/Wm6tgVx9Vd86RHs857HCOVFcYVmCaIDhStB"^^xsd:base64Binary
+            "qAeJgXp5QnEx3G3AIxZNPEQ5YiGGTGd/G1u3DOEwGh+fjD5jtPIyJ5gG2toiM3FX"^^xsd:base64Binary
+            "jf+IxtoK7VexIg8Q1k+BgHebfluEdF/f6UiKEs6tfufto7n7bYj4MDQFcJnlcjdU"^^xsd:base64Binary
+            "l6A01cWBEEpuPym9u99dAfeeEQV0Fn7w6gJkMoK3YVW9ziU3jGZhYTSAiEL1ewj+"^^xsd:base64Binary
+            "q/+HFuk3qfaTVG99za6UX/IsBpgYDB9fYy1FssrCWcFK1n7pvF/7DEcwbKnKej8f"^^xsd:base64Binary
+            "impbZ9wz+DPaBtZ6xU721bDlOu4RF+9LW/0wUidjUU5eexc1nCxLq77X5V1w+ToJ"^^xsd:base64Binary
+            "r47vN1ZtmsUhK0ternDq8mGbuJHg3s+JWrZARSvPAUAYvtQPaT+6qO+Rwev6znvR"^^xsd:base64Binary
+          )];
+    bbsp16:w "oAuUsaybZi1N/g6bWRonzfseaeY4/ZlpAEa9vKstVfvwm2pUHOE0z6fGcqDapraFEIWwoaZnvv3PaT3obCsLvgbiWCfGMhC4pMR7lp135xUqqcJrRM9FEtgGQAWaH6bQ"^^xsd:base64Binary.
+}
+
+GRAPH <http://example.org/revocation> {
+  <http://example.org/revocation#accumulatorId> a <https://ex.org/ns_uacc/v0#UniversalAccumulator>;
+    <https://ex.org/ns_uacc/v0#hasMaxSize> "128"^^xsd:nonNegativeInteger;
+    <https://ex.org/ns_uacc/v0#hasParameters> [
+        <https://ex.org/ns_uacc/v0#P> "s9NlDhL0DhGYcFxEhdbSz93p4HzfCbtp4rUD/dCdxFJ6ThsY7RHuJRwrQluO+MXh"^^xsd:base64Binary;
+        <https://ex.org/ns_uacc/v0#P_tilde> "pY41IA9mGeM+u0rWnuct9SpHtIZQAg1Dcxj7IxqNGSWNEIf34T361gVnQTcgHSebDbds9u+HtZmtBhnUodVADUuH6AXiqMG5fsEFkTD5HkX2Op2XaV2P5N9KiFtZzO11"^^xsd:base64Binary];
+    <https://ex.org/ns_uacc/v0#hasPublicKey> [
+        rdf:value "oWbbzrExtgQNuIes8g9rctFhRcLc2HHHx/m1Op40c/djnAzoIM0AO7THHK0+0NGUCnojfM9AURELWs/qy7GS21CCbqsNWObQfMNA0z6RFEN8F78qLqgU8K6649xu0qys"^^xsd:base64Binary];
+    <https://ex.org/ns_uacc/v0#hasValue> "roWxiMrcoDmv3b9SBHsAyBld8WGpn8CtNkeF1Jceg+YCcO778FQZOvRFjSAjn1mY"^^xsd:base64Binary.
+}
+
+GRAPH _:signatureGraph {
+  [] a bbsp16:BbbsPlus16GLDS;
+    cred:proofValue [
+        bbsp16:A "g1Em1MEy9yaJsQGYZ9bwlUtuGJlPOpAqYj7dIaPkX4YUlMx2F220Ndc6GWd/eD1e"^^xsd:base64Binary;
+        bbsp16:e "gq1/fT3uD2EuFX9dXsZSvcDcgNTYvgzLIlGbaceVA0Y="^^xsd:base64Binary;
+        bbsp16:s "FpwmJNbkQiTyYYRL98ldG+GVtBPiaBw+uSuFTBEF0w4="^^xsd:base64Binary];
+    cred:verificationMethod <http://example.org/keys#aCompanyKey>.
+}
+
+GRAPH _:witnessInfo {
+  [] a <https://ex.org/ns_uacc/v0#NonMembershipWitness>;
+    <https://ex.org/ns_uacc/v0#C> "gE+oNI3moiZpQU+ILQb324aK05Xtf7gnGONk9d09Azh9cOJtJ/4dQbLBoyQRz2TY"^^xsd:base64Binary;
+    <https://ex.org/ns_uacc/v0#d> "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="^^xsd:base64Binary;
+    <https://ex.org/ns_uacc/v0#isWitnessOf> <http://example.org/credentials#credId>;
+    <https://ex.org/ns_uacc/v0#witnessesNotMemberOf> <http://example.org/revocation#accumulatorId>.
+}

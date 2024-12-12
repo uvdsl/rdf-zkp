@@ -1,0 +1,93 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX org: <http://www.w3.org/ns/org#> 
+PREFIX bbsp16: <https://ex.org/bbs+/v0#> 
+PREFIX lg16: <https://ex.org/lg16/v0#> 
+PREFIX spok: <https://ex.org/spok/v0#> 
+PREFIX uacc: <https://ex.org/uacc/v0#> 
+PREFIX zkp: <https://ex.org/zkp/v0#> 
+PREFIX cred: <https://www.w3.org/2018/credentials#> 
+
+GRAPH _:4 {
+	_:0 cred:credentialStatus <http://example.org/revocation#accumulatorId> .
+	_:0 cred:credentialSubject _:7 .
+	_:0 cred:issuer <http://example.org/organisations#aCompany> .
+	_:0 _:16 _:17 .
+	_:0 cred:validUntil _:22 .
+	_:25 _:26 _:27 .
+	_:7 org:memberOf <http://example.org/organisations#aCompany> .
+}
+GRAPH _:presentationProofGraph {
+	_:cproof rdf:type zkp:CompositeProof .
+	_:cproof zkp:hasComponent _:p0 .
+	_:cproof zkp:hasComponent _:p1 .
+	_:cproof zkp:hasComponent _:p2 .
+	_:p0 rdf:type bbsp16:PoKS16 .
+	_:p0 bbsp16:hasVerificationKey <http://example.org/keys#aCompanyKey> .
+	_:p0 bbsp16:isProofOfKnowledgeOfSignatureOverGraph _:4 .
+	_:p0 bbsp16:A_prime "og4GMdVXTPRV0BaP0uSo66QfLh8M/Otvnf5iJ+Lyf4a5XTAdVBumssaUFDy30pqe"^^xsd:base64Binary .
+	_:p0 bbsp16:A_bar "oh2fnqQZ87TahtbGV+Te7UsjPt+GjCeSbo4cdVMVKCTKeVvtZtWP9K4Dk75DdicZ"^^xsd:base64Binary .
+	_:p0 bbsp16:d "ihCgpycMsxkNeT9vnlRv8QqxxLMkadL1GHCOnzC2/kVltRIoqJrBpMV5pA84c8WO"^^xsd:base64Binary .
+	_:p0 bbsp16:pi _:p0_spk1 .
+	_:p0 bbsp16:pi _:p0_spk2 .
+	_:4 spok:hasSchnorrResponse "zuN2DSmUsaqYiuafuIkEmqZ4sDZ26eBmpCptaTAWsA4="^^xsd:base64Binary .
+	_:p0_spk1 rdf:type bbsp16:SPK1 .
+	_:p0_spk1 spok:hasCommitmentToRandomness "gi01T28bCib+BSSHBWZvVAG+0ToQkDYnwD4euqtize1BouR+ENFwsLh8z1lZ35cz"^^xsd:base64Binary .
+	_:p0_spk1 bbsp16:hasResponseValueFor_e "U2RteF5hv0+UpJmCP61A+YL/1e7kj5xLLNzWi1Pxt1E="^^xsd:base64Binary .
+	_:p0_spk1 bbsp16:hasResponseValueFor_r2 "VrS/w+c3u9qLzM/tqo2axNa2ROUypxdTkFrFUj9L/Vo="^^xsd:base64Binary .
+	_:p0_spk2 rdf:type bbsp16:SPK2 .
+	_:p0_spk2 spok:hasCommitmentToRandomness "jWnoZyLUClhCBjGCZur/s1hNULJr7mSjW5hEuxbhm5scx8SVU4H6Aka1Ie7HzezL"^^xsd:base64Binary .
+	_:p0_spk2 bbsp16:hasResponseValueFor_r3 "6fh2iSnq0+thhRHFWL8uuzTaDPjz1ZQmSTOxvdlBsCU="^^xsd:base64Binary .
+	_:p0_spk2 bbsp16:hasResponseValueFor_s_prime "vUfqWkf8RDq3e58Abk81ORkg+hasy6loYnMxoeYd5AA="^^xsd:base64Binary .
+	_:0 spok:hasSchnorrResponse "YT+CO0ZpZQGaDM28HFPOEOROWYzLt9G3MPwbO2+SywI="^^xsd:base64Binary .
+	_:7 spok:hasSchnorrResponse "QW+HbSMojOgMiXBe6BOGUqL+qA1qhGerDo/uRpsXbw8="^^xsd:base64Binary .
+	_:7 spok:hasSchnorrResponseForSuffix "m761hnHRdyrzR1ERS0SG8xj92/B2AZTc543JfRA3yTE="^^xsd:base64Binary .
+	_:16 spok:hasSchnorrResponse "CphilYnVqzWW3X1OavlC98VH/wwvPDL23ZjdxHjVmF0="^^xsd:base64Binary .
+	_:17 spok:hasSchnorrResponse "XJlQbfTDFizoVwJfnJJ+K5RWZr4KXI+MimMrMt7hqiM="^^xsd:base64Binary .
+	_:17 spok:hasSchnorrResponseForSuffix "4dnHTvyhtr+fKiJSu5mCfFgU3ysTwrCcrYStanMt6g8="^^xsd:base64Binary .
+	_:22 spok:hasSchnorrResponse "vD31XyvF7penDuF+XMd2qkIkIre7yTBZVIIhRgMSLUg="^^xsd:base64Binary .
+	_:22 spok:hasSchnorrResponseForSuffix "dIr+YUK5hS9wZ2iSjwz6bQze4NBqIyi1Eo5vF5auEjQ="^^xsd:base64Binary .
+	_:25 spok:hasSchnorrResponse "NWb862k4JRtPuJOh23Q+cVlatYCZkUgfjNZunUzFu0I="^^xsd:base64Binary .
+	_:26 spok:hasSchnorrResponse "KD+DJVv+tAy0OuOKteMFzSf7w+Yx5S08Ghve7h4+IEI="^^xsd:base64Binary .
+	_:27 spok:hasSchnorrResponse "hU3NlMHWPSGMDuzSsgYD0Ge3B2hPMWO4E6ZzkrdSu2Y="^^xsd:base64Binary .
+	_:27 spok:hasSchnorrResponseForSuffix "CGUG+Nl4oBcHgBV2YfdmaElSaI8rat5H1suTuyJexxs="^^xsd:base64Binary .
+	_:p1 rdf:type lg16:LegoGroth16ProofOfRangeMembership .
+	_:p1 lg16:hasVerificationKey <http://example.org/keys#verifierLg16VerificationKey> .
+	_:p1 lg16:hasWitness _:22 .
+	_:p1 lg16:hasLowerBound "1383830400"^^xsd:nonNegativeInteger .
+	_:p1 lg16:hasUpperBound "18446744073709551615"^^xsd:nonNegativeInteger .
+	_:p1 lg16:hasProofValue _:p1_lg16pv .
+	_:p1 lg16:pok _:p1_lg16sp .
+	_:p1_lg16pv lg16:A "gHXauzK+2McFjmesHb3v/CYLYcOFUSWT1Mvl/9FQh6LbM8Kkl75wMZMlnJMrstxg"^^xsd:base64Binary .
+	_:p1_lg16pv lg16:B "g/NpgGnqNIq7nuXvaZGBNaHNss77zsxIMCepqj5hBFbvwniPEoXRjSF9c8TMQuy8DVKPOG8KAiOmAFE5VlpTbcgSdSyMqImgcC4oLvqRUmC/DuOylZ3FE4wW2pSC51mn"^^xsd:base64Binary .
+	_:p1_lg16pv lg16:C "sp4wRHTCFy7lZS5RsMj5Ynb/XDqED8cTg6ShxhE738QcyqTIYpkEclc3a0icd8bC"^^xsd:base64Binary .
+	_:p1_lg16pv lg16:D "tocygVl+VS8ZjfnaQhJHYPLwC1Q28F5sL6RXwGEq3jRr7hXmUsGE+rhz6Q06+CTk"^^xsd:base64Binary .
+	_:p1_lg16sp spok:hasCommitmentToRandomness "h+QEdFhILqMAlv8/G6CJPU9N3/7bChBJ0iAC/LXbr/VWIcl6gx93lUjb3dwdr6Lq"^^xsd:base64Binary .
+	_:p1_lg16sp lg16:hasResponseValueFor_opening "JsKWf5EDO2C5JahAGi3GP4hpXU9dLfDFqWb6kySq/zU="^^xsd:base64Binary .
+	_:p2 rdf:type uacc:UniversalAccumulatorProofOfNonMembership .
+	_:p2 uacc:hasAccumulator <http://example.org/revocation#accumulatorId> .
+	_:p2 uacc:hasWitness _:0 .
+	_:p2 uacc:hasProvingKey <http://example.org/keys#proverUaccProvingKey> .
+	_:p2 uacc:hasRandomizedWitness _:p2_uacc_rw .
+	_:p2 uacc:hasCommitments _:p2_uacc_sc .
+	_:p2 uacc:hasResponses _:p2_uacc_sr .
+	_:p2_uacc_rw uacc:E_C "jzMh9OH6acxKJFYVrKtc3rng3vFmnPARdHD5OYxUd1RM9mMwwRfH4qaRHHqGmIcs"^^xsd:base64Binary .
+	_:p2_uacc_rw uacc:E_d "oWkf7nO8AzKE1NgyBzc0PZVUez4AwlAqkS6qXdhwn+IhV2Og/KM8yPBxSjj0QOZw"^^xsd:base64Binary .
+	_:p2_uacc_rw uacc:E_d_inv "tzZWdVuzwZAyiWbHfpcGuLiXk8Lqcp4bM1I5C33UEiQrHAmuHrpHZlraKRJZO2o6"^^xsd:base64Binary .
+	_:p2_uacc_rw uacc:commitment_to_randomness_T_sigma "kVvPlOqOEAEvl1rj7wa34x/LgcUE7BKl4KXXiHvfi04nUwv/t9C2PJ9x1ijPstLo"^^xsd:base64Binary .
+	_:p2_uacc_rw uacc:commitment_to_randomness_T_rho "oi5+VdRlGzq7eOt14WBpgkBSluMj7cgCM3uorL22O1LMc2RGFyaJb0dlS/7+4S1f"^^xsd:base64Binary .
+	_:p2_uacc_sc uacc:R_E "LKHwQoXU0kHz5QOoTrMXsJvGHELkL2z1mvZy9pH0JdL63ouA4EwOmwVTMeqkDvgDRHrZECz6knfuwwuQtChh0R/xkoPKbuF77qpWqwHVwLEtkPl76Z8SF2XRLkRRDG8BYFCXlUVm6Ur5O0MKSZfUi467sNupDPcYt3jf6ahevaFI6F6iF3kMHPAabbeMl68TdwkoKsObF3jD1OsuluJfMpTAD0MoRVZVDUV7dZ8gEPNej2U6+iC1kUrp1sOVkysY618/vUq61dGJarwN4USPcS5hbhXXVyBSPD3UUSEy02IssoTkjTqFz8P6zH80kr4WjaML4DBenoxeyqPK3g3pcOGKsAnIAxCmKMrZYXZkqS3XrrwcF/GyToCGXzu8h9EB2j+7VeMKLET8+El6qJNFU4WzRUFoFUhF2s83WmmDcDzZEWaORL1F5sOv7auTuk8OiQQVLEU7H3K1W/MID+7J57iEZ7Ubh2xE5KEbad8Hp5K8TXlX6Cm9e/YLvfvkDP8RR1tratW5coVVIkk9nbERWV6UxDXWMwXtSiAzUNv+MOZXiNgPeiiVR7dtKR/l2uAXI/IUrb/Okph5i8wLALl2mjV5o3xPpXEK3JUr28XCI7Q796n1MZaWmbbFMMeDpG4QOqC3QBpNUBIvfINOlBeEZRYgE/UNhflY/2GfZvLL+UyxmjnrBB9PfEiz0hpnh8kLpFreN7l+N5ircZwU6iGegmtiZI5o8iZsPgLbpq49JoerwN+Oori0atz1tCMUyIMV"^^xsd:base64Binary .
+	_:p2_uacc_sc uacc:R_sigma "ksoz+jdpnXqam3RfAW4hr7d/gGDB0hhRgHxZJXk+lJzJqTOsb3y1BSASJlIK94p5"^^xsd:base64Binary .
+	_:p2_uacc_sc uacc:R_rho "hXJoGVpQSUM1cu9G4ZTUaWjKfs+Pu3z7C/E3RFWn9LnWy/KAGz7eoCp6Sle2Vsv9"^^xsd:base64Binary .
+	_:p2_uacc_sc uacc:R_delta_sigma "oC1efA+qqqBw1EJzL5nc+b8DpKVtJBffCVJjkQmGDnQ68OTYASiRw7LqoAul/14a"^^xsd:base64Binary .
+	_:p2_uacc_sc uacc:R_delta_rho "g/WuGixc0MdB3kx1WdVM0u2svGW7mSll4F6fbkLSSE97G2IwEF5s/f214VfNrim2"^^xsd:base64Binary .
+	_:p2_uacc_sc uacc:R_A "hQo27wETk9fSABtW1iFXMLMt++I3IybfXSzPU29YUF7l67jmls5uZOxzleB++OkB"^^xsd:base64Binary .
+	_:p2_uacc_sc uacc:R_B "iWLp6SxwyW8L16ovEBvMO1U3uFeS7hONIcIxCo0Duwp0NN8nHelgjXMNwkGT7vJv"^^xsd:base64Binary .
+	_:p2_uacc_sr uacc:s_sigma "6ZydiHp1n/3tYG0nSPh+f+U1jxB6sbD3GiN9SVVLiFU="^^xsd:base64Binary .
+	_:p2_uacc_sr uacc:s_rho "+06dP3GuFXlKRbkIBWP3lFrAPEuDN+Yqwd8l0/iknVY="^^xsd:base64Binary .
+	_:p2_uacc_sr uacc:s_delta_sigma "FigWlsvWYFsuM7p0wKLjekBv1nt/vb2lfk9Oh+rYixQ="^^xsd:base64Binary .
+	_:p2_uacc_sr uacc:s_delta_rho "vHKHBkiVphhxkA9OTldiIJ6kpwVkEgVBhfSyKysIpEw="^^xsd:base64Binary .
+	_:p2_uacc_sr uacc:s_u "vV/dK1OzKv1w/vUCIee5qIkxXvM9NedT9DgszdlRnCE="^^xsd:base64Binary .
+	_:p2_uacc_sr uacc:s_v "rv8+KJRmlz2Oc9HVtxO0mTE9VMdO0fbITQia+lAs/As="^^xsd:base64Binary .
+	_:p2_uacc_sr uacc:s_w "5R0AtIe0BJFX6FxmOCsRcQ7UC1IiY7bsFV7yURtEejw="^^xsd:base64Binary .
+}

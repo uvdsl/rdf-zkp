@@ -1,0 +1,167 @@
+@prefix : <#> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+@prefix zkp: <./zkp-o#> .  # TODO delete for anon review
+@prefix spok: <./zkp-o-spok#> . # TODO delete for anon review
+
+<> a owl:Ontology ;
+    dc:title "LegoGroth16" ;
+    dc:date "2024-11-06" ;
+    dc:creator []; # deleted for anon review
+    dc:description """
+This is an RDF vocabulary to model LegoGroth16's proof of numeric bounds.
+The LegoGroth16 protocol is an instances of a proof protocol for proving that a (secret) value is within specified numeric bounds aka. range membership.
+Following the particular protocol produces a corresponding proof.
+That is, there is a class of proofs that were produced following the particular protocol.
+                 """ .
+
+###################
+#    Instances    #
+###################
+:LegoGroth16 a :ZeroKnowledgeProofProtocol ; 
+    rdfs:isDefinedBy <https://eprint.iacr.org/2019/142> ;
+    rdfs:label "LegoGroth16" ;
+    rdfs:comment """
+The LegoGroth16 protocol:
+A protocol to prove that a (secret) value is within specified numeric bounds aka. range membership.
+                 """ .
+
+####################
+#      Classes     #
+####################
+
+:PoRM a rdfs:Class;
+    rdfs:subClassOf zkp:ZeroKnowledgeProofOfRangeMembership;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2019/142> ;
+    rdfs:label "LegoGroth16 Proof of Range Membership" ;
+    rdfs:comment """
+The class of zero-knowledge proofs of numeric bounds produced from following the LegoGroth16 protocol.
+                 """ .
+
+:PublicKey a rdfs:Class ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2019/142.pdf> ;
+    rdfs:label "public key of (verification key and bases for) LegoGroth16 PoRM" .
+
+:QuadraticArithmeticProgram a rfds:Class ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2019/142.pdf> ;
+    rdfs:label "quadratic arithmetic program of the LegoGroth16 PoRM" ;
+    rdfs:comment """
+   See definition H.1 of the paper, <https://eprint.iacr.org/2019/142.pdf>.
+                 """ .
+
+:PoK a rdfs:Class;
+    rdfs:subClassOf spok:SchnorrPok ;
+    rdfs:isDefinedBy <https://eprint.iacr.org/2019/142.pdf> ;
+    rdfs:label "Signature Proof of Knowledge (Part 2)" ;
+    rdfs:comment """
+The proof for the second part of the signature proof of knowledge from the paper. We use a SchnorrPoK.
+                 """ .
+
+####################
+#    Properties    #
+####################
+
+:useVerificationKey a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "use verification key" ;
+    rdfs:comment """
+The property indicates that the (subject) LegoGroth16 PoRM has (object) verification key that should be used for verification of the proof. 
+                 """ ;
+    rdfs:domain :PoRM ;
+    rdfs:range  :PublicKey .
+
+:hasWitness a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has witness" ;
+    rdfs:comment """
+The property indicates that the (subject) LegoGroth16 PoRM has (object) witness, i.e. the (secret) value that the proof is about. 
+                 """ ;
+    rdfs:domain :PoRM ;
+    rdfs:range  zkp:Witness .
+
+:hasLowerBound a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has lower bound" ;
+    rdfs:comment """
+The property indicates that the (subject) LegoGroth16 PoRM has (object) lower bound. 
+                 """ ;
+    rdfs:domain :PoRM ;
+    rdfs:range  xsd:nonNegativeInteger .
+
+:hasUpperBound a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has upper bound" ;
+    rdfs:comment """
+The property indicates that the (subject) LegoGroth16 PoRM has (object) upper bound. 
+                 """ ;
+    rdfs:domain :PoRM ;
+    rdfs:range  xsd:nonNegativeInteger .
+
+:hasProofValue a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has proof value" ;
+    rdfs:comment """
+The property indicates that the (subject) LegoGroth16 PoRM has (object) upper bound. 
+                 """ ;
+    rdfs:domain :PoRM ;
+    rdfs:range  :QuadraticArithmeticProgram .
+
+:A a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has proof value" ;
+    rdfs:comment """
+The property indicates that the (subject) QuadraticArithmeticProgram has (object) element A. 
+                 """ ;
+    rdfs:domain :QuadraticArithmeticProgram ;
+    rdfs:range  xsd:base64Binary .
+
+:B a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has proof value" ;
+    rdfs:comment """
+The property indicates that the (subject) QuadraticArithmeticProgram has (object) element B. 
+                 """ ;
+    rdfs:domain :QuadraticArithmeticProgram ;
+    rdfs:range  xsd:base64Binary .
+
+:C a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has proof value" ;
+    rdfs:comment """
+The property indicates that the (subject) QuadraticArithmeticProgram has (object) element C. 
+                 """ ;
+    rdfs:domain :QuadraticArithmeticProgram ;
+    rdfs:range  xsd:base64Binary .
+
+:D a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has proof value" ;
+    rdfs:comment """
+The property indicates that the (subject) QuadraticArithmeticProgram has (object) element D, the commitment to the witness using a secret opening value (aka. randomoness or blinding factor). 
+                 """ ;
+    rdfs:domain :QuadraticArithmeticProgram ;
+    rdfs:range  xsd:base64Binary .
+
+:pok a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has proof of knowledge of witness" ;
+    rdfs:comment """
+The property indicates that the (subject) LegoGroth16 PoRM has a (object) proof of knowledge of witness. 
+                 """ ;
+    rdfs:domain :PoRM ;
+    rdfs:range  :PoK .
+
+:hasResponseValueFor_opening a rdf:Property ;
+    rdfs:isDefinedBy <> ;
+    rdfs:label "has response value for opening" ;
+    rdfs:comment """
+The property indicates that the (subject) PoK  has an (object) response value for the opening of the commitment to witness.
+                 """ ;
+    rdfs:domain :PoK ;
+    rdfs:range  xsd:base64Binary .
+
+# TODO insert model of verification key / public key
