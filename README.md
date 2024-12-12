@@ -42,7 +42,8 @@ cargo run --bin verifier_schema
 # benchmark the performance difference
 cargo bench
 ```
-We used the rust compiler `rustc 1.66.0 (69f9c33d7 2022-12-12)` (in case that is relevant at some point in time).
+We used the rust compiler `rustc 1.66.0 (69f9c33d7 2022-12-12)`.
+Just in case that is relevant at some point in time.
 
 ---
 
