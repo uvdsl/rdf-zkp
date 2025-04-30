@@ -9,7 +9,7 @@ We use [dock/crypto](https://github.com/docknetwork/crypto) as a submodule for p
 
 - [benches/](benches/) a sample benchmark of of the MT-based and schema-based approach.
 - [data/](data/) the Verifiable Credential (VC) and Verifiable Presentation (VP) that are being generated when running the examples.
-- [dock/crypto/](dock/crypto/) the submodule that provides the cryptographic functions.
+- [dock/crypto/](https://github.com/docknetwork/crypto) will be created upon initialising the submodule (provides the cryptographic functions).
 - [src/](src/) source code.
     - [bin/](src/bin/) examples that you can execute.
     - [poc/](src/poc/) proof of concept implementations of the different procedures (issue,prove,verify) in two versions: model theory (MT)-based (no suffix) and schema-based ("_schema" suffix).
