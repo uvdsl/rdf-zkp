@@ -23,7 +23,7 @@ use crate::rdf4zkp::quads_list::QuadsList;
 ///                                         0 | 5 | 10 | 15 => 0,
 ///                                         7 | 25 => 7,
 ///                                         _ => i,
-///                                      }
+///                                      };
 /// ```
 /// This way, the function does not need to keep track of which terms are repalced with which blank node.
 /// The mapping is externally defined through the provided closure.
