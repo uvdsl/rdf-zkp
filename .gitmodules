@@ -1,3 +1,0 @@
-[submodule "dock/crypto"]
-	path = dock/crypto
-	url = git@github.com:docknetwork/crypto.git
