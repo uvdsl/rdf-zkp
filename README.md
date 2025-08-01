@@ -7,7 +7,7 @@ We use [dock/crypto](https://github.com/docknetwork/crypto) for proof of knowled
 
 ## Repository Structure
 
-- [benches/](benches/) a sample benchmark of of the MT-based and schema-based approach.
+- [benches/](benches/) a sample benchmark of of the schema-free and schema-based approach.
 - [data/](data/) the Verifiable Credential (VC) and Verifiable Presentation (VP) that are being generated when running the examples.
 - [src/](src/) source code.
     - [bin/](src/bin/) examples that you can execute.
