@@ -46,3 +46,39 @@ Just in case that is relevant at some point in time.
 ---
 
 This is a proof of concept, not a library.
+
+---
+
+Please cite this work by referring to
+
+`Christoph H.-J. Braun, Tobias Käfer: RDF-Based Semantics for Selective Disclosure and Zero-Knowledge Proofs on Verifiable Credentials. ESWC (1) 2025: 383-402`
+
+or use the following BibTeX record
+```
+@inproceedings{DBLP:conf/esws/BraunK25,
+  author       = {Christoph H.{-}J. Braun and
+                  Tobias K{\"{a}}fer},
+  editor       = {Edward Curry and
+                  Maribel Acosta and
+                  Mar{\'{\i}}a Poveda{-}Villal{\'{o}}n and
+                  Marieke van Erp and
+                  Adegboyega K. Ojo and
+                  Katja Hose and
+                  Cogan Shimizu and
+                  Pasquale Lisena},
+  title        = {RDF-Based Semantics for Selective Disclosure and Zero-Knowledge Proofs
+                  on Verifiable Credentials},
+  booktitle    = {The Semantic Web - 22nd European Semantic Web Conference, {ESWC} 2025,
+                  Portoroz, Slovenia, June 1-5, 2025, Proceedings, Part {I}},
+  series       = {Lecture Notes in Computer Science},
+  volume       = {15718},
+  pages        = {383--402},
+  publisher    = {Springer},
+  year         = {2025},
+  url          = {https://doi.org/10.1007/978-3-031-94575-5\_21},
+  doi          = {10.1007/978-3-031-94575-5\_21},
+  timestamp    = {Fri, 04 Jul 2025 22:06:19 +0200},
+  biburl       = {https://dblp.org/rec/conf/esws/BraunK25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+```
